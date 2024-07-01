@@ -1,1 +1,1 @@
-# MyNotes
+# my-notes
