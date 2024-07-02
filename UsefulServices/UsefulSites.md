@@ -1,1 +1,1 @@
-[Generate .gitignore file](https://www.toptal.com/developers/gitignore) - генерирует .gitignore файлы  
+[.gitignore file](https://www.toptal.com/developers/gitignore) - сайт для генерации .gitignore файлов  
