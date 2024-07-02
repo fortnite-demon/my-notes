@@ -1,0 +1,31 @@
+name: workflow
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+          os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+        
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
+      
+    - name: Ubuntu depends
+      if: ${{ matrix.os == 'Ubuntu-latest' }}
+      run: echo "This is Ubuntu"
+
+    - name: Windows depends
+      if: ${{ matrix.os == 'Windows-latest' }}
+      run: echo "This is Windows"
+
+    - name: MacOS depends
+      if: ${{ matrix.os == 'Macos-latest' }}
+      run: echo "This is MacOS"
