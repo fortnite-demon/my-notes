@@ -1,0 +1,23 @@
+name: CI
+
+on: [workflow_dispatch]
+
+# add working directory
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./scripts
+    steps:
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4  
+      - name: Run a script
+        run: ./my-script.sh
+      - name: Run another script
+        run: ./my-other-script.sh
+        # add environment
+        env:
+          PARAM: 12
+          PARAM2: 22
