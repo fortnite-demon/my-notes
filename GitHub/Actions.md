@@ -17,3 +17,12 @@ defaults:
   env:
     MY_PARAM: 12
 ```
+
+### Установка env для всех
+
+```yaml
+on: ...
+
+env:
+  MY_ENV: ...
+```
