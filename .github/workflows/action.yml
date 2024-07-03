@@ -15,8 +15,7 @@ jobs:
           - macos-latest
         
     steps:
-    - name: checkout
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
       
     - name: Ubuntu depends
       if: ${{ matrix.os == 'Ubuntu-latest' }}
