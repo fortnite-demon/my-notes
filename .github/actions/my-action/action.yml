@@ -1,0 +1,10 @@
+name: Your action
+description: Description for action
+inputs:
+  variable:
+    default: "default value"
+    type: string
+    required: true
+runs:
+  main: 'main.py'
+  using: 'python3'
