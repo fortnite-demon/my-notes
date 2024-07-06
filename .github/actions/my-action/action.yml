@@ -5,6 +5,9 @@ inputs:
     default: "default value"
     type: string
     required: true
+outputs:
+  result:
+    description: lol
 runs:
   main: 'main.py'
   using: 'python3'
