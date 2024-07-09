@@ -13,3 +13,8 @@ strategy:
       - os: windows-latest
         version: 16
 ```
+
+###  Для передачи всех секретов вызывающего workflow
+```yml
+secrets: inherit
+```
