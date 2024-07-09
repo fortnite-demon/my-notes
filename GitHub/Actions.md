@@ -6,7 +6,7 @@ strategy:
     os: [macos-latest, windows-latest]
     version: [12, 14, 16]
     environment: [staging, production]
-    exclude:
+    exclude: # Добавление **include**
       - os: macos-latest
         version: 12
         environment: production
