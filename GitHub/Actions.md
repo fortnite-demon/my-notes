@@ -1,36 +1,15 @@
-### Установка дефолтных значений для steps
+### Удаление определённых комбинаций из матрицы
 
-```yaml
-runs-on: ...
-defaults:
-  run:
-    shell: ...
-    working_directory: ...
-```
-
-
-### Установка environment для отдельных steps
-
-```yaml
-- name: step-name
-  run: ...
-  env:
-    MY_PARAM: 12
-```
-
-### Установка env для всех
-
-```yaml
-on: ...
-
-env:
-  MY_ENV: ...
-```
-
-### Не позволит отменить задания матрицы при одной неудачи
-
-```yaml
+```yml
 strategy:
   matrix:
-    fail-fast: false
+    os: [macos-latest, windows-latest]
+    version: [12, 14, 16]
+    environment: [staging, production]
+    exclude:
+      - os: macos-latest
+        version: 12
+        environment: production
+      - os: windows-latest
+        version: 16
 ```
