@@ -10,6 +10,10 @@
 ```github.event.workflow_run.conclusion``` - Возрващает результат workflow указанного в workflow: ... (succes, failure)
 
 ---
+### actions/cache
+```steps.<step id>.outputs.cache-hit != 'true'``` - Позволяет проверить на успешное сохранение кеша
+
+---
 ### schedule
 ```github.event.schedule != '30 5 * * 1,3'``` - Проверка на определённое время
 
