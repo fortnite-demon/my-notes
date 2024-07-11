@@ -30,6 +30,7 @@ strategy:
     exclude:
       - platform: { name: Linux, os: ubuntu-latest, shell: bash }
         node: 18
+runs-on: ${{ matrix.platform.os }}
 ```
 ###  Для передачи всех секретов вызывающего workflow
 ```yml
