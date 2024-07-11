@@ -14,6 +14,23 @@ strategy:
         version: 16
 ```
 
+### Более удобное использование матрицы
+
+```yml
+strategy:
+  matrix:
+    platform:
+      - name: Linux
+        os: ubuntu-latest
+        shell: bash
+    node:
+      - 16
+      - 18
+      - 20
+    exclude:
+      - platform: { name: Linux, os: ubuntu-latest, shell: bash }
+        node: 18
+```
 ###  Для передачи всех секретов вызывающего workflow
 ```yml
 secrets: inherit
