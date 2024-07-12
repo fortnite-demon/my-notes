@@ -1,5 +1,6 @@
 ### pull_request
 ```github.event.pull_request.merged``` - При types: closed можно проверить pr на мёрж (true, false)
+```github.pull_request.merged``` - Для target
 
 ---
 ### pull_request_review
