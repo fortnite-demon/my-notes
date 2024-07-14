@@ -1,7 +1,3 @@
-### pull_request_target
-```github.pull_request.merged``` - true или false
-
----
 ### pull_request_review
 ```github.event.review.state == 'APPROVED'``` - Проверка на аппрув
 
