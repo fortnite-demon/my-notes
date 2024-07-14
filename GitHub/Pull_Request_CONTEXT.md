@@ -8,11 +8,11 @@
 
 ```github.event.<...>```
 - ```number``` - Номер PR
-- ```pull_request.html_url``` - Ссылка на PR
-- ```pull_request.merged``` - true/false
-- ```pull_request.<base/head>.sha``` - Последний коммит в базовой или head ветке
 - ```repository.default_branch``` - Базовая ветвь в репозитории (main)
 
 ```github.event.pull_request.<...>```
 - ```changed_files``` - Количество изменённых файлов
+- ```html_url``` - Ссылка на PR
 - ```diff_url``` - Ссылка на изменения
+- ```merged``` - true/false
+- ```<base/head>.sha``` - Последний коммит в базовой или head ветке
