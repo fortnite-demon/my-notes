@@ -20,6 +20,5 @@
 - ```html_url``` - Ссылка на PR
 - ```diff_url``` - Ссылка на изменения
 - ```merged``` - true/false
-- ```state``` - Open... и подобные
 - ```body``` - Description PR
 - ```<base/head>.sha``` - Последний коммит в базовой или head ветке
