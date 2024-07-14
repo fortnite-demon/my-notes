@@ -9,7 +9,7 @@
 ```github.event.<...>```
 - ```number``` - Номер PR
 - ```repository.default_branch``` - Базовая ветвь в репозитории (main)
-- ```sender.html_url``` - Кто отправил PR
+- ```sender.html_url/login``` - Кто отправил PR или имя
 
 ```github.event.pull_request.<...>```
 - ```base.repo.default_branch``` - Базовая ветка в base, также c head
