@@ -1,5 +1,5 @@
 ```github.<...>```  
-- ```ref``` - Куда запушили
+- ```ref_name``` - Куда запушили или ```ref```
 - ```actor/triggering_actor``` - Кто запушил (```event.sender.html_url``` - ссылка на него)
 - ```repository``` - Репозиторий
 - ```repository_owner``` - Владелец репозитория
