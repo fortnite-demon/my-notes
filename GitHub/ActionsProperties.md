@@ -1,7 +1,7 @@
 ### pull_request
 ```github.event.pull_request.merged``` - При types: closed можно проверить pr на мёрж (true, false)  
 ```github.base_ref``` - main  *(base => head имя ветки pr)*  
-```github.event.base.owner.login``` - Ник владельца repo *(base => head ник отправившего pr)*  
+```github.event.base.repo.owner.login``` - Ник владельца repo *(base => head ник отправившего pr)*  
 ```github.event.html_url``` - Ссылка на pr
 
 
