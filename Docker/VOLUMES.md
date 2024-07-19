@@ -1,0 +1,8 @@
+```/var/lib/docker/<hash>/_data``` - Анонимный volume: ```-v /data```  
+
+```/var/lib/docker/<name>/_data``` - Volume с именем: ```-v name:/data```  
+
+Также можно в конце volume поставить разрешения на действия в контейнере:
+- ```/my_dir:/container_dir:ro``` - read-only
+  
+И так далее
