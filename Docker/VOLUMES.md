@@ -4,5 +4,6 @@
 
 Также можно в конце volume поставить разрешения на действия в контейнере:
 - ```/opt/data:/container_dir:ro``` - read-only
+- ...
   
-И так далее
+```docker volume create <name>``` - Создаст именованный volume  
