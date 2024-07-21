@@ -1,5 +1,6 @@
 ```github.<...>```
 - ```sha``` - SHA workflow
+- ```event_name``` - Имя ивента push, pull_request ...
 - ```repository``` - Название репозитория
 - ```repository_owner``` - Владелец репозитория
 - ```actor/triggering_actor``` - Кто запустил PR или (```event.sender.login``` а ```event.sender.html_url``` ссылка на него)
