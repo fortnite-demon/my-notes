@@ -11,8 +11,6 @@ healthcheck:
 Создание сетей
 ```yml
 network:
-  default:
-    net:
-      driver: bridge
-      name: my-net
+  net:
+    driver: bridge
 ```
