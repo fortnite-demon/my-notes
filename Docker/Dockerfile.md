@@ -57,3 +57,6 @@ EXPOSE 80/tcp
 ```Dockerfile
 ADD <src> <dst>
 ```
+```Dockerfile
+ONBUILD <ARG любой> будет выполняться когда будут использовать образ в качестве FROM
+```
