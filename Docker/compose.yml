@@ -45,7 +45,8 @@ services:
       timeout: 10s Сколько ждёт ответа
       retries: 3 Попытки
       start_period: 10s Через сколько после запуска контейнера
-
+    ----------
+    
     command: Команда при запуске
     entrypoint: ...
 
