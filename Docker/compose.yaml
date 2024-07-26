@@ -49,6 +49,7 @@ services:
     
     command: Команда при запуске
     entrypoint: ...
+    container_name: container
 
 volumes:
   pg_data:
