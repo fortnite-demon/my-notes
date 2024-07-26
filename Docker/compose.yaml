@@ -39,7 +39,7 @@ services:
       <<: *environment-defaults
     restart: on-failure:5
     healthcheck:
-      test: curl -f http://localhost:8000/api/health || exit 1
+      test: [ "CMD", "curl -f http://localhost:8000/api/health || exit 1" ]
       interval: 10s
       timeout: 10s
       retries: 3
