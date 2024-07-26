@@ -18,16 +18,41 @@ RUN
     pip install -r requirements.txt                                      | Эти параметры будут выполняться для команды, тут для pip install                                                   
 ```
 ```Dockerfile
+COPY <src> <dst> 
+     --from=[image|stage|context] --from=nginx:latest или --from=name
+     --chown=<user>:<group> --chmod=<perms> ... <src> ... <dest>
+     --parents=false|true сохраняет родительские каталоги
+     --exclude=*.txt исключает файлы
+```
+```Dockerfile
+ENV <key>=<value>
+```
+```Dockerfile
 CMD ["nginx", "-g", "daemon off;"]
+
+ENTRYPOINT ["file.sh"]
+```
+```Dockerfile
+USER <user>:<group>
+```
+```Dockerfile
+WORKDIR /workdir
+```
+```Dockerfile
+VOLUME ["/volume"] | нужно будет указать host-dir при запуске контейнера
+```
+```Dockerfile
+HEALTHCHECK --interval=5m --timeout=3s retries=5 start-period=5s\
+CMD curl -f http://localhost/ || exit 1
+```
+```Dockerfile
+SHELL ["cmd", "/S", "/C"] | При использовании команды shell например в RUN command param будет выполнена в формате cmd /S /C command param
 ```
 ```Dockerfile
 LABEL <key>=<value> <key>=<value> <key>=<value> ...
 ```
 ```Dockerfile
 EXPOSE 80/tcp
-```
-```Dockerfile
-ENV <key>=<value>
 ```
 ```Dockerfile
 ADD <src> <dst>
