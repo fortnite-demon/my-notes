@@ -1,20 +1,19 @@
 version: '3.8'
 x-environment-defaults: &environment-defaults
-  DEBUG: "False"
   DB_NAME: "prediction"
   DB_USER: "prediction"
   DB_PASSWORD: "prediction"
-  DB_HOST: "postgres-db"
   DB_PORT: 5432
-  CELERY_BROKER_URL: "redis://redis:6379/0"
-  CELERY_RESULT_BACKEND: "redis://redis:6379/0"
-  SECRET_KEY: "secret"
 
 services:
   service-name:
-    ----------
+    ---------- Образ или путь к Dockerfile
     build:
       context: ./path
+    или
+    image: image:tag
+    ----------
+    
     sercrets:
       - mysercret
     env_file: ./.env
@@ -27,16 +26,28 @@ services:
       - static_volume:/app/static
     depends_on:
       postgres-db:
-        condition: service_unhealthly, service_healthly (при наличии параметра healtcheck), started, service_completed, service_running 
+        condition: [ service_unhealthly, service_healthly (при наличии параметра healtcheck) ], started, service_completed, service_running 
+        
+    ---------- Переменные окружения
     environment:
       <<: *environment-defaults
-    restart: on-failure:5
+    или
+    environment:
+      VAR: value
+    ----------
+    
+    restart: on-failure:5 (пять попыток перезапуска), unless-stopped, always, no
+    
+    ---------- Проверяет контейнер на здоровье
     healthcheck:
       test: [ "CMD", "curl -f http://localhost:8000/api/health || exit 1" ]
-      interval: 10s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
+      interval: 10s Через сколько
+      timeout: 10s Сколько ждёт ответа
+      retries: 3 Попытки
+      start_period: 10s Через сколько после запуска контейнера
+
+    command: Команда при запуске
+    entrypoint: ...
 
 volumes:
   pg_data:
