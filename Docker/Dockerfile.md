@@ -55,7 +55,7 @@ LABEL <key>=<value> <key>=<value> <key>=<value> ...
 EXPOSE 80/tcp
 ```
 ```Dockerfile
-ADD <src> <dst>
+ADD <src> <dst> --chown --chmod --exclude
 ```
 ```Dockerfile
 ONBUILD <ADD/ARG/или любой> будет выполняться когда будут использовать образ в качестве FROM
