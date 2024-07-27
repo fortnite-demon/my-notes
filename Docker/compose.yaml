@@ -41,7 +41,7 @@ services:
     ---------- Проверяет контейнер на здоровье
     healthcheck:
       test: [ "CMD", "curl -f http://localhost:8000/api/health || exit 1" ]
-      interval: 10s Через сколько
+      interval: 1m10s Через сколько
       timeout: 10s Сколько ждёт ответа
       retries: 3 Попытки
       start_period: 10s Через сколько после запуска контейнера
