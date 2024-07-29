@@ -22,8 +22,13 @@ services:
   
     sercrets:
       - mysercret
-    
+      
+    ----------
     env_file: ./.env
+    или ещё указать
+      - path: ...
+        required: true/false
+    ----------
     
     ports:
       - "3000:3000"
