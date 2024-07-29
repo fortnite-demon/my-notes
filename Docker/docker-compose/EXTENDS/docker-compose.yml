@@ -1,6 +1,6 @@
 services:
   apache2:
-    image: ubuntu/apache2
+    image: ubuntu/apache2 (Можно не указывать, если указано то будет это, а не из extend)
     extends:
       file: common-services.yml
       service: servicename
