@@ -59,6 +59,15 @@ services:
     entrypoint: ...
     container_name: container
 
+    ---------- При изменении path будет синхронизировать target с контейнером
+    develop:
+      watch:
+        - action: sync
+          path: .
+          target: /code
+    ----------
+
+
 volumes:
   pg_data:
   static_volume:
