@@ -16,17 +16,22 @@ services:
     или
     image: image:tag
     ----------
-    
+  
     sercrets:
       - mysercret
+    
     env_file: ./.env
+    
     ports:
       - "3000:3000"
+      
     networks:
       - prediction-network
+      
     volumes:
       - ./prediction:/app
       - static_volume:/app/static
+      
     depends_on:
       postgres-db:
         condition: [ service_unhealthly, service_healthly (при наличии параметра healtcheck) ], started, service_completed, service_running 
@@ -61,6 +66,8 @@ volumes:
 secrets:
   mysecret:
     file: prediction-app/file.txt
+    или
+    external: true Если секрет внешний
 
 networks:
   prediction-network:
