@@ -1,9 +1,12 @@
 version: '3.8'
-x-environment-defaults: &environment-defaults
+
+x-env: &env
   DB_NAME: "prediction"
   DB_USER: "prediction"
   DB_PASSWORD: "prediction"
   DB_PORT: 5432
+x-twoenvs: $twoenvs
+  EXAMPLE: 1
 
 services:
   service-name:
@@ -30,7 +33,7 @@ services:
         
     ---------- Переменные окружения
     environment:
-      <<: *environment-defaults
+      <<: [*env, *twoenvs]
     или
     environment:
       VAR: value
