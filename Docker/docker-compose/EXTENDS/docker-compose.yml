@@ -1,0 +1,6 @@
+services:
+  apache2:
+    image: ubuntu/apache2
+    extends:
+      file: common-services.yml
+      service: servicename
