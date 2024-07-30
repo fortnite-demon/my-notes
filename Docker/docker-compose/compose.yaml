@@ -79,6 +79,7 @@ services:
         - action: sync
           path: .
           target: /code
+          ignore: при желании
     ----------
 
 
