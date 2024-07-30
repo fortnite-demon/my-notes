@@ -58,7 +58,7 @@ services:
 
     user: ...
 
-    profiles: ["dev","prod"...] При использовании docker compose --profile dev up, запустит все сервисы dev можно также после up указать сервис 
+    profiles: ["dev","prod"...] При использовании docker compose --profile dev up, запустит все сервисы dev, можно также после up указать сервис 
     
     ---------- Проверяет контейнер на здоровье
     healthcheck:
