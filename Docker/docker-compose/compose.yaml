@@ -19,7 +19,8 @@ services:
     или
     image: image:tag
     ----------
-  
+    user: ...
+    
     sercrets:
       - mysercret
       
