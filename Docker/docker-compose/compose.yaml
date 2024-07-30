@@ -19,7 +19,6 @@ services:
     или
     image: image:tag
     ----------
-    user: ...
     
     sercrets:
       - mysercret
@@ -54,6 +53,12 @@ services:
     ----------
     
     restart: on-failure:5 (пять попыток перезапуска), unless-stopped, always, no
+
+    ----------
+
+    user: ...
+
+    profiles: ["dev","prod"...] При использовании docker compose --profile dev up, запустит все сервисы dev можно также после up указать сервис 
     
     ---------- Проверяет контейнер на здоровье
     healthcheck:
