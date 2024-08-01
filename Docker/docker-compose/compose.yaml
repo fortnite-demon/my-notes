@@ -1,7 +1,12 @@
 version: '3.8'
-
+__________
 include:
   - 'Сервисы которые хотим добавить из других yml'
+  также
+  - path:
+      - Сервис
+      - override файл
+__________
 
 x-env: &env
   DB_NAME: "prediction"
@@ -13,23 +18,23 @@ x-twoenvs: $twoenvs
 
 services:
   service-name:
-    ---------- Образ или путь к Dockerfile
+    __________ Образ или путь к Dockerfile
     build:
       context: ./path
       secrets: Можно указать секреты во время сборки
     или
     image: image:tag
-    ----------
+    __________
     
     sercrets:
       - mysercret Хранятся в папке /run/secrets/ в контейнере
       
-    ----------
+    __________
     env_file: ./.env
     или ещё указать
       - path: ...
         required: true/false
-    ----------
+    __________
     
     ports:
       - "3000:3000"
@@ -45,43 +50,43 @@ services:
       postgres-db:
         condition: [ service_unhealthly, service_healthly (при наличии параметра healtcheck) ], started, service_completed, service_running 
         
-    ---------- Переменные окружения
+    __________ Переменные окружения
     environment:
       <<: [*env, *twoenvs]
     или
     environment:
       VAR: value
-    ----------
+    __________
     
     restart: on-failure:5 (пять попыток перезапуска), unless-stopped, always, no
 
-    ----------
+    __________
 
     user: ...
 
     profiles: ["dev","prod"...] При использовании docker compose --profile dev up, запустит все сервисы dev, можно также после up указать сервис 
     
-    ---------- Проверяет контейнер на здоровье
+    __________ Проверяет контейнер на здоровье
     healthcheck:
       test: [ "CMD", "curl -f http://localhost:8000/api/health || exit 1" ]
       interval: 1m10s Через сколько
       timeout: 10s Сколько ждёт ответа
       retries: 3 Попытки
       start_period: 10s Через сколько после запуска контейнера
-    ----------
+    __________
     
     command: Команда при запуске
     entrypoint: ...
     container_name: container
 
-    ---------- При изменении path будет синхронизировать target с контейнером | Применяются правила из .dockerignore, | docker compose up --watch
+    __________ При изменении path будет синхронизировать target с контейнером | Применяются правила из .dockerignore, | docker compose up --watch
     develop:                                                                    глобальные шаблоны не поддерживаются
       watch:
         - action: sync | rebuild (Создаст новый image и заменит контейнер) | sync+restart (Синхронизация и перезапуск)
           path: .
           target: /code
           ignore: при желании
-    ----------
+    __________
 
 
 volumes:
