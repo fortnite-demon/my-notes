@@ -104,3 +104,4 @@ secrets:
 networks:
   prediction-network:
     driver: bridge
+    external: true | Для подключения к уже существующей сети
