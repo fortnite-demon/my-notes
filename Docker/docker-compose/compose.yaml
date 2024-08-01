@@ -48,7 +48,7 @@ services:
       
     depends_on:
       postgres-db:
-        condition: [ service_unhealthly, service_healthly (при наличии параметра healtcheck) ], started, service_completed, service_running 
+        condition: [ service_unhealthly, service_healthly (при наличии параметра healtcheck) ], started, service_completed, service_running, service_completed_successfully
         
     __________ Переменные окружения
     environment:
