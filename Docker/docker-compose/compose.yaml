@@ -104,4 +104,6 @@ secrets:
 networks:
   prediction-network:
     driver: bridge
+    или Будет искать сеть с именем network и подключать к ней контейнеры
+    name: network
     external: true | Для подключения к уже существующей сети
