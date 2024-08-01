@@ -73,10 +73,10 @@ services:
     entrypoint: ...
     container_name: container
 
-    ---------- При изменении path будет синхронизировать target с контейнером | Применяются правила из .dockerignore,
+    ---------- При изменении path будет синхронизировать target с контейнером | Применяются правила из .dockerignore, | docker compose up --watch
     develop:                                                                    глобальные шаблоны не поддерживаются
       watch:
-        - action: sync
+        - action: sync | rebuild (Создаст новый image и заменит контейнер) | sync+restart (Синхронизация и перезапуск)
           path: .
           target: /code
           ignore: при желании
