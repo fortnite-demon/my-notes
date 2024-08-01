@@ -92,6 +92,8 @@ secrets:
     file: prediction-app/file.txt
     или
     external: true Если секрет внешний
+    или
+    environment: VAR 
 
 networks:
   prediction-network:
