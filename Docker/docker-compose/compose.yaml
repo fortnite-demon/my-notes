@@ -73,8 +73,8 @@ services:
     entrypoint: ...
     container_name: container
 
-    ---------- При изменении path будет синхронизировать target с контейнером
-    develop:
+    ---------- При изменении path будет синхронизировать target с контейнером | Применяются правила из .dockerignore,
+    develop:                                                                    глобальные шаблоны не поддерживаются
       watch:
         - action: sync
           path: .
