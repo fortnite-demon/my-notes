@@ -87,6 +87,8 @@ services:
           target: /code
           ignore: при желании
     __________
+    mem_limit:
+    cpus:
 
 
 volumes:
