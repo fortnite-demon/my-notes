@@ -5,5 +5,12 @@ deploy:
     
   replicas: n
 
+  resources:
+    cpus:
+    memory:
+  reservation:
+    cpus:
+    memory:
+
   
 docker node --availability=(drain, очистить и неактивное состояние) (active) <name>
