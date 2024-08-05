@@ -1,8 +1,9 @@
 deploy:
 
   placement:
-    constrains: [node.role == manager]
+    constraints: [node.role == manager] или по label [node.labels.label == label]
     
   replicas: n
 
   
+docker node --availability=(drain, очистить и неактивное состояние) (active) <name>
