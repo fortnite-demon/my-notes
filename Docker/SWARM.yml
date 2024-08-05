@@ -11,6 +11,10 @@ deploy:
   reservation:
     cpus:
     memory:
+  __________ Когда делаем обновление docker service update
+  update_config:
+    parallelism: 2
+    delay: 1h1m10s
 
   
 docker node --availability=(drain, очистить и неактивное состояние) (active) <name>
