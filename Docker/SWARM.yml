@@ -1,0 +1,8 @@
+deploy:
+
+  placement:
+    constrains: [node.role == manager]
+    
+  replicas: n
+
+  
