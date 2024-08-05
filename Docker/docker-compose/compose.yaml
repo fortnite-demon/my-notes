@@ -21,6 +21,8 @@ services:
     __________ Образ или путь к Dockerfile
     build:
       context: ./path
+      args:
+        arg: value
       secrets: Можно указать секреты во время сборки
     или
     image: image:tag
