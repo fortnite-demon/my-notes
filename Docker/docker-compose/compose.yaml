@@ -31,6 +31,9 @@ services:
     
     sercrets:
       - mysercret Хранятся в папке /run/secrets/ в контейнере
+      или
+      - source: secret
+        target: /path/in/container
       
     __________
     env_file: ./.env
