@@ -10,7 +10,7 @@ ARG PLATFORM
 ```Dockerfile
 RUN
     --mount=type=cache,target=/root/.cache/pip \                         | cache для кеша
-    --mount=type=bind,source=requirements.txt,target=requirements.txt \  | bind read-only, можно изменить на rw
+    --mount=type=bind,source=requirements.txt,target=requirements.txt \  | bind rw, можно изменить на readonly
     --mount=type=bind, from=name ...  
     --mount=type=secret,id=aws,target=/root/.aws/credentials             | secrets Разрешите контейнеру сборки получать доступ к защищенным файлам,
                                                                                    таким как закрытые ключи, не записывая их в образ.
