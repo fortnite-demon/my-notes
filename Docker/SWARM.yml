@@ -1,10 +1,10 @@
 deploy:
-
+  __________
   placement:
     constraints: [node.role == manager] или по label [node.labels.label == label]
-    
+  __________
   replicas: n
-
+  __________
   resources:
     cpus:
     memory:
@@ -15,6 +15,11 @@ deploy:
   update_config:
     parallelism: 2
     delay: 1h1m10s
+  __________
+  restart_policy:
+    condition: on-failure
+    delay: 5s
+    max_attempts: 3
 
   
 docker node --availability=(drain, очистить и неактивное состояние) (active) <name>
