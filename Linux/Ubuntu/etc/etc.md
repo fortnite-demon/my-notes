@@ -1,5 +1,7 @@
 ## /etc
 
+```bash.bashrc``` - Глобальный конфиг bash
+
 ```/resolf.conf``` - Резолвер
 
 ```/services``` - Службы и их порты
