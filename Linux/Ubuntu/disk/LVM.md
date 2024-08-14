@@ -17,3 +17,9 @@
 ```lvcreate -n /home -L30G my_vg``` - Создание LV
 
 ```{lv, vg, pv}display```
+
+#
+
+Пересканировать аппаратную конфигурацию, чтобы система увидела новый размер диска
+
+```echo 1 > /sys/block/sda/device/rescan```
