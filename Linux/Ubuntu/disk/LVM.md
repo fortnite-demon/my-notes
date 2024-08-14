@@ -15,3 +15,5 @@
 ```vgcreate my_vg /dev/sdb``` - Создание VG
 
 ```lvcreate -n /home -L30G my_vg``` - Создание LV
+
+```{lv, vg, pv}display```
