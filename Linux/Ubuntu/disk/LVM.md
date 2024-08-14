@@ -18,7 +18,7 @@
 
 При изменении размера PV, нужно сообщить об этом ядру: ```pvresize /dev/sda```  
 
-Расширение LV: ```lvextend -r -1 +100%FREE /dev/mapper/vgroupl-root```
+Расширение LV: ```lvextend -r -l +100%FREE /dev/mapper/vgroupl-root```
 
 ```{lv, vg, pv}display```
 
