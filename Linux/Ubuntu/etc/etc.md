@@ -9,3 +9,12 @@
 ```/NetworkManager/system-connections/...``` - Параметры сетевых интерфейсов
 
 ```/apt/sources.list``` - Список репозиториев apt
+
+GRUB
+```
+/default/grub
+                     
+/grub.d/
+
+/boot/grub/grub.cfg
+```
