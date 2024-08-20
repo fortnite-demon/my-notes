@@ -5,3 +5,6 @@
 ```+:root:197.123.23.54 127.123.40.34``` - Разрешение входа как root с определённых IP
 
 ```+:root:.example.org``` - Доступ для root из домена
+##
+Также нужно отредактировать файлы /etc/pam.d/sshd и /etc/pam.d/system-auth
+добавить строчку ```account required /lib{В зависимсти от разрядности, можно указать lib64}/security/pam_access.so```
