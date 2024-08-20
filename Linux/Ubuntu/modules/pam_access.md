@@ -6,5 +6,5 @@
 
 ```+:root:.example.org``` - Доступ для root из домена
 ##
-Также нужно отредактировать файлы /etc/pam.d/sshd и /etc/pam.d/system-auth
+Также нужно отредактировать файлы /etc/pam.d/sshd и /etc/pam.d/system-auth  
 добавить строчку ```account required /lib{В зависимсти от разрядности, можно указать lib64}/security/pam_access.so```
