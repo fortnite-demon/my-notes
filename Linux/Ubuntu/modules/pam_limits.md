@@ -4,6 +4,7 @@
 <домен> <тип> <ресурс> <значение>
 *       hard  maxlogin     3
 @ssh_users hard nproc      5
+@ssh_users soft fsize    24000
 ```
 
 hard - Нельзя привысить  
