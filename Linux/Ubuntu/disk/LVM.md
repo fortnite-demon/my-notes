@@ -14,7 +14,7 @@
 
 ```vgcreate my_vg /dev/sdb``` - Создание VG
 
-```lvcreate -n /home -L30G my_vg``` - Создание LV
+```lvcreate -n home -L30G my_vg``` - Создание LV
 
 При изменении размера PV, нужно сообщить об этом ядру: ```pvresize /dev/sda```  
 
