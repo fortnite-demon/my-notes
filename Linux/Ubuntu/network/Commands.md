@@ -2,6 +2,10 @@
 
 ```
 route [операция] [-net к сети -host к узлу] адресат gw шлюз [dev интерфейс]
+
+route add -net 192.168.16.0 netmask 255.255.255.0 dev еnsЗЗ
+route add -net 192.168.16.О netmask 255'.255.255.0 gw 192.168.16.1
+route add -net 10.100.0.0 netmask 255.0.0.О reject 
 ```
 
 ```iwconfig``` - Выводит информацию обо всех беспроводных интерфейсах  
