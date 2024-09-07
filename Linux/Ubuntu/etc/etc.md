@@ -10,6 +10,8 @@
 
 ```/apt/sources.list``` - Список репозиториев apt
 
+```/netplan/01..``` - Настройка маршрутов
+
 GRUB
 ```
 /default/grub
