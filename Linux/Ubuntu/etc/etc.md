@@ -12,6 +12,8 @@
 
 ```/netplan/01..``` - Настройка маршрутов
 
+```/network/interfaces``` - 
+
 GRUB
 ```
 /default/grub
