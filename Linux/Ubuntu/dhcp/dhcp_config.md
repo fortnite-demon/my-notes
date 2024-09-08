@@ -27,6 +27,7 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
         hardware ethernet 00:FF:FB:69:DC:E5;  
         fixed-address 192.168.1.99;  
     }
+
     # Список маршрутизаторов (через пробел)
     option routers 192.168.0.1;
 
