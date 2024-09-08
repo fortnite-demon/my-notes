@@ -86,4 +86,4 @@ iface ethO inet dhcp
 renderer: networkd
 ethernets:
     ens0:
-        dhcp4: true
+        dhcp4: yes
