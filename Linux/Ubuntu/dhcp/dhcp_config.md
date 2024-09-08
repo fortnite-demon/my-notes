@@ -53,3 +53,25 @@ subnet 192.168.1.0 netmask 255.255.255.0 {
     range 192.168.0.101 192.168.0.200; 
 }
 ```
+
+Сложная сеть:
+```
+shared-network rny_bignet {
+
+    # Доменное имя и имена DNS-cepвepoв
+    option domain-name "company.com";
+    option domain-name-servers nsl.cornpany.corn ns2.cornpany.corn
+
+    # Шлюз по умолчанию
+    option routers 192.168.0.1;
+
+    # Подсети 192.168.1.0 и 192.168.2.0
+
+    subnet 192.168.0.0 netrnask 255.255.252.0 {
+        range 192.168.0.101 192.168.0.200;
+    }
+    subnet 192.168.1.0 netrnask 255.255.252.0 {
+        range 192.168.1.101 192.168.1.200;
+    }
+}
+```
