@@ -81,7 +81,7 @@ shared-network rny_bignet {
 auto ethO
 iface ethO inet dhcp 
 ```
-А в /etc/netplan/01...yml
+А в /etc/netplan/01...yml && sudo netplan apply
 ```
 renderer: networkd
 ethernets:
