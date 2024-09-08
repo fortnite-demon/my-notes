@@ -76,3 +76,14 @@ shared-network rny_bignet {
     }
 }
 ```
+В /etc/network/interfaces
+```
+auto ethO
+iface ethO inet dhcp 
+```
+А в /etc/netplan/01...yml
+```
+renderer: networkd
+ethernets:
+    ens0:
+        dhcp4: true
