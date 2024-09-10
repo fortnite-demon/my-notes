@@ -14,11 +14,11 @@
 
 ```vgcreate my_vg /dev/sdb``` - Создание VG
 
-```lvcreate -n home -L30G my_vg``` - Создание LV
+```lvcreate -n home -L 30G my_vg``` - Создание LV
 
 При изменении размера PV, нужно сообщить об этом ядру: ```pvresize /dev/sda```  
 
-Расширение LV: ```lvextend -r -l +100%FREE /dev/mapper/vgroupl-root```
+Расширение LV: ```lvextend -r -l +100%FREE или -L +5G /dev/mapper/vgroupl-root```
 
 ```{lv, vg, pv}display```
 
