@@ -15,5 +15,11 @@ ACCEPT, REJECT, DROP, REDIRECT (Разрешить, отклонить и отб
 -p - Протокол (tcp,udp) для порта --dport на какой порт --to-ports
 -s - IP
 ```
+Таблицы nat, filter, mangle, raw    
+- nat - PREROUTING, POSTROUTING, OUTPUT  
+- filter - default  
+```
+-t
+```
 
 
