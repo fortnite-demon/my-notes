@@ -8,7 +8,8 @@ findtime = 10 # Время в течении которого учитывает
 maxretry = 4
 bantime = 440 # Время бана в минутах
 action = # Что выполнится по истечению retry
-port = ssh
+port = # Порт службы (ssh,http,https)
 filter = sshd
 ignoreip = 127.123.12.0/24 # Игнорировать с ...
+logpath = # Откуда читаются логи
 ```
