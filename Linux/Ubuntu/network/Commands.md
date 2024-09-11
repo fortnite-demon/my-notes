@@ -16,7 +16,7 @@ route add -net 10.100.0.0 netmask 255.0.0.О reject
 
 ```iwevent``` - Просмотреть события беспроводной сети
 
-```netstat```
+```netstat -tuln``` - Какие порты открыты
 
 ```netplan```
 
