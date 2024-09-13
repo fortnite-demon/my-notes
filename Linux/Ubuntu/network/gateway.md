@@ -1,6 +1,6 @@
 ```echo 1 > /sys/net/ipv4/ip_forward```
   
-```net.ipv4.ip_forward=0 -> /etc/sysctl.conf```
+```net.ipv4.ip_forward=1 -> /etc/sysctl.conf```
 
 ```
 network:
