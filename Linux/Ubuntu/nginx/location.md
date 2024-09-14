@@ -41,5 +41,6 @@ location / {
     gzip_types text/plain application/xml; # Доп. типы
     gzip_min_length 1000; # Минимальная длина ответа для сжатия в байтах
     gzip_proxied no-cache no-store private expired auth; # Сжатие на запросы от прокси сервера, сравнивает данные в заголовке
+                                                         # any - ко всем
 }
 ```
