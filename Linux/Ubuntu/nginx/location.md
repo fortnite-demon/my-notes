@@ -42,5 +42,7 @@ location / {
     gzip_min_length 1000; # Минимальная длина ответа для сжатия в байтах
     gzip_proxied no-cache no-store private expired auth; # Сжатие на запросы от прокси сервера, сравнивает данные в заголовке
                                                          # any - ко всем
+    gunzip on; # Распаковка на лету
+    gzip_static on; # Отправка уже сжатого контента
 }
 ```
