@@ -27,5 +27,8 @@ location / {
     keepalive_timeout 65; # Сколько времени в секундах соединение будет открытым после последнего запроса
 
     proxy_pass http://www.example.com/link/;
+
+    proxy_set_header Host $host; # Изменение заголовка
+    proxy_set_header X-Real-IP $remote_addr;
 }
 ```
