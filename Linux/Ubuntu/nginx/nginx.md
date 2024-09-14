@@ -8,4 +8,6 @@ sudo sysctl -w net.core.somaxconn=4096
 ```
 net.core.somaxconn = 4096
 ```
+
+если somaxconn > 512, то нужно указать listen 80 backlog=4096;
 #
