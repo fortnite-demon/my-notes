@@ -36,5 +36,10 @@ location / {
     proxy_buffers_size 2k; # Размер 2k первого буфера для ответа первой части от прокси сервера
 
     proxy_bind 127.0.0.1; # Указывается IP для подключения к серверу
+
+    gzip on; # Сжатие, по умолчанию text/html
+    gzip_types text/plain application/xml; # Доп. типы
+    gzip_min_length 1000; # Минимальная длина ответа для сжатия в байтах
+    gzip_proxied no-cache no-store private expired auth; # Сжатие на запросы от прокси сервера, сравнивает данные в заголовке
 }
 ```
