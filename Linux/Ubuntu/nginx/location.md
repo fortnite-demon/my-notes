@@ -30,5 +30,9 @@ location / {
 
     proxy_set_header Host $host; # Изменение заголовка
     proxy_set_header X-Real-IP $remote_addr;
+
+    proxy_buffering on; # on по умолчанию
+    proxy_buffers 16 4k; # 16 буферов по 4k
+    proxy_buffers_size 2k; # Размер 2k первого буфера для ответа первой части от прокси сервера
 }
 ```
