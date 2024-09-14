@@ -1,5 +1,7 @@
 ```nginx
 location / {
+    index index.html index.htm;
+
     rewrite ^/users/(.*)$ /show?user=$1 break; # Переписывает URL адрес, $1 - в скобках, можно использовать и в server
                                                # break - Прекращает всех rewrite и не ищет новый URL
                                                # last - Прекращает всех rewrite и возвращается к началу location
@@ -11,5 +13,9 @@ location / {
     sub_filter 'word' 'word'; # Изменяет записи в теле сообшения
     sub_filter_once on; # On обрабатывает 1 запись, off все
     sub_filter_types application/json; # Типы текста
+
+    autoindex on; # Позволяет автоматически генерировать списки каталогов, когда индексный файл не найден в каталоге
+
+    try_files $uri $uri/ $uri.html; # Если файл не будет найден, поочерёдно будет проверять $uri
 }
 ```
