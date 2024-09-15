@@ -13,15 +13,21 @@ http {
     proxy_no_cache $http_authorization; # Условия при которых ответ не будет кеширован
     proxy_cache_bypass $cookie_nocache; # Условия при которых кеш не будет отправлен, а будет сделан запрос к серверу
 
+    map $request_method $purge_method {
+        default 0;
+        PURGE 1;
+    }
+
     proxy_cache_key "$host$request_uri$cookie_user"; # Строка запроса, для управления какие ответы кешируются
     proxy_cache_methods GET HEAD POST; # Кеширование методов отличных от GET и HEAD по умолчанию
-
 
     server {
 
         proxy_cache mycache; # Можно также указать её для location
 
         location {
+
+            proxy_cache_purge $purge_method; # Удаление кэше на основании map
 
         }
 
