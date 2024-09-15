@@ -13,9 +13,15 @@ http {
     proxy_no_cache $http_authorization; # Условия при которых ответ не будет кеширован
     proxy_cache_bypass $cookie_nocache; # Условия при которых кеш не будет отправлен, а будет сделан запрос к серверу
 
+    geo $purge_allowed {
+        default 0;
+        10.0.0.1/24 1;
+        192.324.12.1 1;
+    }
+
     map $request_method $purge_method {
         default 0;
-        PURGE 1;
+        PURGE $purge_allowed;
     }
 
     proxy_cache_key "$host$request_uri$cookie_user"; # Строка запроса, для управления какие ответы кешируются
