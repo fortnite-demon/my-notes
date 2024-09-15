@@ -2,6 +2,10 @@
 location / {
     index index.html index.htm;
 
+    internal; # Ресурс нельзя запросить из вне
+
+    try_files $uri $uri/ $uri.html =404; # Если файл не будет найден, поочерёдно будет проверять $uri
+
     rewrite ^/users/(.*)$ /show?user=$1 break; # Переписывает URL адрес, $1 - в скобках, можно использовать и в server
                                                # break - Прекращает всех rewrite и не ищет новый URL
                                                # last - Прекращает всех rewrite и возвращается к началу location
@@ -15,8 +19,6 @@ location / {
     sub_filter_types application/json; # Типы текста
 
     autoindex on; # Позволяет автоматически генерировать списки каталогов, когда индексный файл не найден в каталоге
-
-    try_files $uri $uri/ $uri.html =404; # Если файл не будет найден, поочерёдно будет проверять $uri
 
     sendfile           on; # Не копировать данные в буфер, а сразу отсылать клиенту, улучшение производительности
     sendfile_max_chunk 1m; # Размер отсылаемых блоков
@@ -45,5 +47,6 @@ location / {
                                                          # any - ко всем
     gunzip on; # Распаковка на лету
     gzip_static on; # Отправка уже сжатого контента
+
 }
 ```
