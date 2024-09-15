@@ -38,6 +38,7 @@ location / {
     proxy_bind 127.0.0.1; # Указывается IP для подключения к серверу
 
     gzip on; # Сжатие, по умолчанию text/html
+    gzip_vary; # Проверяет клиента на способность декомпрессии
     gzip_types text/plain application/xml; # Доп. типы
     gzip_min_length 1000; # Минимальная длина ответа для сжатия в байтах
     gzip_proxied no-cache no-store private expired auth; # Сжатие на запросы от прокси сервера, сравнивает данные в заголовке
