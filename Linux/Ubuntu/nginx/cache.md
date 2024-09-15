@@ -10,6 +10,9 @@ http {
     proxy_cache_valid 202 404 10m; # Время действия кеша по кодам состояния или any
     proxy_cache_min_uses 5; # Минимальное количество запросов, после которых ответ будет кеширован
 
+    proxy_no_cache $http_authorization; # Условия при которых ответ не будет кеширован
+    proxy_cache_bypass $cookie_nocache; # Условия при которых кеш не будет отправлен, а будет сделан запрос к серверу
+
     proxy_cache_key "$host$request_uri$cookie_user"; # Строка запроса, для управления какие ответы кешируются
     proxy_cache_methods GET HEAD POST; # Кеширование методов отличных от GET и HEAD по умолчанию
 
