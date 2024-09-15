@@ -8,6 +8,7 @@ http {
                                        loader_sleeps=50 # Задержка между итерациями
     proxy_cache_min_uses 5; # Минимальное количество запросов, после которых ответ будет кеширован
     proxy_cache_key "$host$request_uri$cookie_user"; # Строка запроса, для управления какие ответы кешируются
+    proxy_cache_methods GET HEAD POST; # Кеширование методов отличных от GET и HEAD по умолчанию
 
     server {
 
