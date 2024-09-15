@@ -38,6 +38,11 @@ http {
 
             proxy_cache_purge $purge_method; # Удаление кэше на основании map
 
+            slice 1m; # Для диапазона файла
+            proxy_cache_key $uri$is_args$args$slice_range;
+            proxy_cache_valid 200 206 30m;
+            proxy_set_header Range $slice_range;
+
         }
 
     }
