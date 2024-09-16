@@ -11,3 +11,16 @@ net.core.somaxconn = 4096
 
 если somaxconn > 512, то нужно указать listen 80 backlog=4096;
 #
+
+```nginx
+http {
+
+    server {
+        type_max_hash_size 2024; # Размер для хэш таблицы с mime типами
+
+        limit_conn_zone $binary_remote_addr zone=addr:1m; # Ограничение соединений с одного IP
+        limit_conn addr 10;
+    }
+
+}
+```
