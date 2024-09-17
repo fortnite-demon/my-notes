@@ -7,6 +7,7 @@ server {
                                         - img-src: источники изображений.
                                         - frame-src: источники фреймов.
                                         - connect-src: источники для AJAX-запросов.
+                                        - font-src: шрифты
 
     add_header X-Frame-Options "DENY или SAMEORIGIN (наш сервер)"; # Вставка в Frame сайта
 
@@ -19,6 +20,7 @@ server {
     add_header Referrer-Policy "no-referrer"; # При переходе на другой сайт, не передаёт информации о предыдущем
                                - no-referrer-when-downgrade: отправляет реферер только при переходе на HTTPS.
                                - origin: отправляет только источник, без пути и параметров.
+                               - same-origin: только для запросов на тот же сайт
 
     add_header Feature-Policy "geolocation 'self'"; # Какие функции браузера доступны для сайта
                                - camera: доступ к камере.
