@@ -20,7 +20,7 @@ server {
                                - no-referrer-when-downgrade: отправляет реферер только при переходе на HTTPS.
                                - origin: отправляет только источник, без пути и параметров.
 
-    add_header Feature-Policy "geolocation 'self'";
+    add_header Feature-Policy "geolocation 'self'"; # Какие функции браузера доступны для сайта
                                - camera: доступ к камере.
                                - microphone: доступ к микрофону.
                                - geolocation: доступ к геолокации.
