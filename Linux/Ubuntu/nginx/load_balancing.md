@@ -43,6 +43,12 @@ sticky srv_id expires=1h domain=.example.com path=/; # Сохранение се
 sticky route $route_cookie $route_uri; # Назначается маршрут, информация берётся из cookie или из URL запроса
 ```
 ```nginx
+sticky learn
+    create=$upstream_cookie_examplecookie # Как создаётся новый сеанс, здесь из файла cookie example... отправленного вышестоящим сервером
+    lookup=$cookie_examplecookie # Способ поиска сеансов, здесь в файле cookie examplecookie
+    zone=client_sessions:1m # Зона общей памяти где хранится информация о сеансах
+    timeout=1h;
+    sync; # Если несколько nginx экземпляров в одном кластере и в одной зоне, зоны общей памяти можно синхронизировать
 
 ```
 
