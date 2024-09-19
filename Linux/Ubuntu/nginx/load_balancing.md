@@ -51,7 +51,7 @@ sticky learn
     lookup=$cookie_examplecookie # Способ поиска сеансов, здесь в файле cookie examplecookie
     zone=client_sessions:1m # Зона общей памяти где хранится информация о сеансах
     timeout=1h;
-    sync; # Если несколько nginx экземпляров в одном кластере и в одной зоне, зоны общей памяти можно синхронизировать
+    sync; # Sync между несколькими процессами
 
 ```
 
