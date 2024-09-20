@@ -5,7 +5,7 @@ stream {
         listen 12345;
         proxy_pass backend;
         upstream backend {
-            server backend;
+            server backend:12345;
         }
     }
 
@@ -13,7 +13,7 @@ stream {
         listen 53 udp;
         proxy_pass dns;
         upstream dns {
-            server dns;
+            server dns:53;
         }
     }
 
