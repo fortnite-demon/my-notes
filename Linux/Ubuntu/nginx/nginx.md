@@ -26,6 +26,7 @@ http {
                 allow all; # Запретить GET 
                 deny all; # Запретить все, разрешить GET
             }
+            api write=on; # Разрешить запись по API
             # Можно написать в limit_except, будет применяться ко всем методам кроме указанных
             auth_basic "Restrcted Area"; # Сообщение в диалоговом окне
             auth_basic_user_file /path/file; # Путь до файла с паролями, можно сгенерировать htpasswd
