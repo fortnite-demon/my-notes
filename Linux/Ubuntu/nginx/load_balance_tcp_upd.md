@@ -2,7 +2,8 @@
 stream {
 
     upstream backend {
-        least_conn;
+        least_conn; или
+        hash $remote_addr consistent;
         server backend:8080;
     }
     upstream dns {
