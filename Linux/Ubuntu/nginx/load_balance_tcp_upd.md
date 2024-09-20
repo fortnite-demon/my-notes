@@ -5,7 +5,7 @@ stream {
         least_conn; или
         hash $remote_addr consistent; или
         random two least_conn;
-        server backend:8080;
+        server backend:8080 weight=5 max_conns=10;
     }
     upstream dns {
         server dns:53;
