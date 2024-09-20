@@ -25,7 +25,7 @@ stream {
 ### Nginx Plus
 
 ```nginx
-least_time=
+least_time
             - connect Время подключения к вышестоящему серверу
             - first_byte Время получения первого байта данных
             - last_byte Время для получения полного ответа от сервера
