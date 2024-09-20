@@ -26,6 +26,9 @@ http {
                 allow all;
                 deny 127.0.0.1;
             }
+            # Можно написать в limit_except
+            auth_basic "Restrcted Area"; # Сообщение в диалоговом окне
+            auth_basic_user_file /path/file; # Путь до файла с паролями, можно сгенерировать htpasswd
         }
     }
 }
