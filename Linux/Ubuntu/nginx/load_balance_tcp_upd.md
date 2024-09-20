@@ -1,18 +1,18 @@
 ```nginx
-http {
+stream {
 
-    stream {
-
-        server {
-            listen 12345;
-            proxy_pass back;
+    server {
+        listen 12345;
+        upstream backend {
+            server backend;
         }
-
-        server {
-            listen 53 udp;
-            proxy_pass servers;
-        }
-
     }
+    server {
+        listen 53 udp;
+        upstream dns {
+            server dns;
+        }
+    }
+
 }
 ```
