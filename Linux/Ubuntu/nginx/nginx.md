@@ -23,8 +23,8 @@ http {
 
         location / {
             limit_except GET { # Ограничение методов
-                allow all;
-                deny 127.0.0.1;
+                allow all; # Запретить GET 
+                deny all; # Запретить все, разрешить GET
             }
             # Можно написать в limit_except
             auth_basic "Restrcted Area"; # Сообщение в диалоговом окне
