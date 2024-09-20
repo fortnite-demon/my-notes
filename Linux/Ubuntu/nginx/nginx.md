@@ -23,7 +23,7 @@ http {
 
         location / {
             limit_except GET { # Ограничение методов
-                allow all; # Запретить GET 
+                allow 127.123.123.0; # Разрешить все, кроме GET
                 deny all; # Запретить все, разрешить GET
             }
             api write=on; # Разрешить запись по API
