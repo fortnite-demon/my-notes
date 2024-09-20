@@ -20,7 +20,13 @@ http {
 
         limit_conn_zone $binary_remote_addr zone=addr:1m; # Ограничение соединений с одного IP
         limit_conn addr 10;
-    }
 
+        location / {
+            limit_except GET { # Ограничение методов
+                allow all;
+                deny 127.0.0.1;
+            }
+        }
+    }
 }
 ```
