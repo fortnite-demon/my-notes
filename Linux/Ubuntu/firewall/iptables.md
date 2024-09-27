@@ -5,14 +5,15 @@ OUTPUT, INPUT, FORWARD, PREROUTING (Исходящий, входящий, чер
 -D - Удалить
 -R - Заменить
 ```
-ACCEPT, REJECT, DROP, REDIRECT (Разрешить, отклонить и отбросить, редирект)
+ACCEPT, REJECT, DROP, REDIRECT, MASQUERADE (Разрешить, отклонить и отбросить, редирект)
 ```
--j
+-j  
 ```
 
 ```
--i lo - Интерфейс
--p - Протокол (tcp,udp) для порта --dport на какой порт --to-ports
+-i lo - Интерфейс  
+-o - На какой интерфейс
+-p - Протокол (tcp,udp) для порта --dport на какой порт --to-ports  
 -s - IP
 ```
 Таблицы nat, filter, mangle, raw    
