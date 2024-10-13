@@ -1,7 +1,7 @@
 ```github.<...>```
 - ```sha``` - SHA workflow
 - ```event_name``` - Имя ивента push, pull_request ...
-- ```repository``` - Название репозитория
+- ```repository``` - Название репозитория (fortnite-demon/actions)
 - ```repository_owner``` - Владелец репозитория
 - ```actor/triggering_actor``` - Кто запустил PR или (```event.sender.login``` а ```event.sender.html_url``` ссылка на него)
 - ```base_ref/head_ref``` - Ветви (main/feature)
