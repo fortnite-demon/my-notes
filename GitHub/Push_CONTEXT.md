@@ -2,7 +2,7 @@
 - ```event_name``` - Имя ивента push, pull_request ...
 - ```ref_name``` - Куда запушили или ```ref```
 - ```actor/triggering_actor``` - Кто запушил (```event.sender.html_url``` - ссылка на него)
-- ```repository``` - Репозиторий
+- ```repository``` - Репозиторий (ft-demon/notes)
 - ```repository_owner``` - Владелец репозитория
 - ```sha``` - SHA workflow
 
