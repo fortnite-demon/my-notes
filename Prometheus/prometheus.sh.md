@@ -8,10 +8,6 @@
 
 ```--web.console.libraries="console_libraries"``` - путь к директории с библиотеками для шаблонов;  
 
-```--web.page-title``` - заголовок веб-страницы (title);  
-
-```--web.cors.origin=".*"``` - настройки CORS для веб-интерфейса;  
-
 ```--storage.tsdb.path="data/"``` - путь для хранения time series database;  
 
 ```--storage.tsdb.retention.time``` - время хранения метрик по умолчанию 15 дней, все, что старше, будет удаляться;  
