@@ -1,2 +1,13 @@
-[Unit]
+[Unit] # Метаданные и зависимости
+Description=Service
+After=network-online.target # После чего
+Wanted=network-online.target # Одновременно с чем
 
+[Service]
+ExecStart=<command>
+User=<user>
+Group=<group>
+Type=Simple
+
+[Install] # Правила установки и запуска
+WantedBy=multi-user.target # После запуска, будет запущен наш сервис
