@@ -7,7 +7,10 @@ Wanted=network-online.target # Одновременно с чем
 ExecStart=<command>
 User=<user>
 Group=<group>
-Type=Simple
+Type=Simple (сервис завершается, когда завершится процесс) # Тип запускаемого процесса
+     exec # перезапустить, если завершится  
+     timer
+     oneshot # сервис запускается только один раз и затем завершается, systemd не следит за состоянием после завершения
 
 [Install] # Правила установки и запуска
 WantedBy=multi-user.target # После запуска, будет запущен наш сервис
