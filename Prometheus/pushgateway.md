@@ -20,9 +20,9 @@
 cat <<EOF | curl --data-binary @- http://localhost:9091/metrics/job/cron_app
 # TYPE cron_app_payed_sum gauge
 cron_app_payed_sum 15487
-# TYPE cron_app_processed_users gauge
-# HELP cron_app_processed_users Processed Users Counter.
-cron_app_processed_users 238
+# TYPE api_count_requests counter
+# HELP api_count_requests Processed Users Counter.
+api_count_requests{label="value"} 123
 EOF
 ```
 
