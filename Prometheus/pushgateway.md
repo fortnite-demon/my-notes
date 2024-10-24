@@ -10,7 +10,14 @@
 
 ##
 
-```echo "metric_name 123" | curl --data-binary @- http://localhost:9091/metrics/job/cronapp``` - Отправляем данные на pushgateway  
+```echo "metric_name 123" | curl --data-binary @- http://localhost:9091/metrics/job/cron_app``` - Отправляем данные на pushgateway  
 
 - ```--data-binary``` - Никак не изменять данные из stdin, а просто передавать в POST запросе
-- ```job``` - Label, а ```cronapp``` его значение
+- ```job``` - Label, а ```cron_app``` его значение
+
+##
+
+```push_failure_time_seconds``` - timestamp, когда запись метрик в группу (job=cron_app) провалилась.
+
+```push_time_seconds``` - временная метка, когда была произведена последняя успешная запись в данную группу.
+  
