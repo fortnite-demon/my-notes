@@ -10,6 +10,7 @@
 
 ##
 
-```echo "metric_name 123" | curl --data-binary @- http://localhost:9091``` - Отправляем данные на pushgateway  
+```echo "metric_name 123" | curl --data-binary @- http://localhost:9091/metrics/job/cronapp``` - Отправляем данные на pushgateway  
 
 - ```--data-binary``` - Никак не изменять данные из stdin, а просто передавать в POST запросе
+- ```job``` - Label, а ```cronapp``` его значение
