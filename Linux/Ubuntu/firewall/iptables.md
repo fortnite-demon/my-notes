@@ -67,3 +67,55 @@ iptables -t nat -A POSTROUTING -o eth0 --sport 80 -j SNAT --to-source 192.12.122
 ```
 sudo iptables -A INPUT -s 192.168.1.0/24 -p tcp -m multiport --dports 22,80 -j ACCEPT
 ```
+
+Разрешить входящие SSH-соединения (порт 22):
+```
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+```
+
+Заблокировать входящие ICMP-пакеты:
+```
+sudo iptables -A INPUT -p icmp --icmp-type echo-request -j DROP
+```
+
+Разрешить весь трафик из подсети 192.168.1.0/24:
+```
+sudo iptables -A INPUT -s 192.168.1.0/24 -j ACCEPT
+```
+
+Запретить доступ к порту 80 (HTTP) для всех:
+```
+sudo iptables -A INPUT -p tcp --dport 80 -j REJECT
+```
+
+Ограничить количество одновременных соединений на порт 80:
+```
+sudo iptables -A INPUT -p tcp --dport 80 -m connlimit --connlimit-above 10 -j REJECT
+```
+
+Перенаправить трафик с порта 80 на порт 8080:
+```
+sudo iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+```
+
+Настроить маскировку для NAT, чтобы скрыть внутренние IP-адреса:
+```
+sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+```
+  
+Разрешить доступ к порту 22 только в рабочие часы (например, с 9 до 17):
+```
+sudo iptables -A INPUT -p tcp --dport 22 -m time --timestart 09:00 --timestop 17:00 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 22 -j REJECT
+```
+
+Ограничить количество пакетов, принимаемых за секунду, для защиты от DoS-атак:
+```
+sudo iptables -A INPUT -p tcp --dport 80 -m limit --limit 10/s -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 80 -j DROP
+```
+
+Логировать входящие пакеты, которые не соответствуют правилам:
+```
+sudo iptables -A INPUT -j LOG --log-prefix "iptables: " --log-level 4
+```
