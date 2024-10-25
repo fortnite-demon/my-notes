@@ -1,31 +1,65 @@
-OUTPUT, INPUT, FORWARD, PREROUTING (Исходящий, входящий, через хост трафик, перенаправление)
-```
--A - Добавить в конец цепочки
--I - В начало
--D - Удалить
--R - Заменить
-```
-ACCEPT, REJECT, DROP, REDIRECT, MASQUERADE, DNAT, SNAT (Разрешить, отклонить и отбросить, редирект)
-```
--j  
-```
+## Основные цепочки
+
+- OUTPUT: Исходящий трафик
+- INPUT: Входящий трафик
+- FORWARD: Трафик через хост
+- PREROUTING: Перенаправление
+- POSTROUTING: После маршрутизации
+
+## Команды
+
+- -A: Добавить в конец цепочки
+- -I: Добавить в начало
+- -D: Удалить
+- -R: Заменить
+
+## Действия
+
+- ACCEPT: Разрешить
+- REJECT: Отклонить
+- DROP: Отбросить
+- REDIRECT: Редирект
+- MASQUERADE: Маскировка
+- DNAT: Динамический NAT
+- SNAT: Статический NAT
+
+## Параметры
+
+- -j: Jump (переход)
+- -i: Входной интерфейс
+- -o: Исходящий интерфейс
+- -p: Протокол (tcp, udp)
+- --dport: Порт назначения
+- --to-port: Порт перенаправления
+- -s: IP-адрес источника
+
+## Примеры использования
+
+Перенаправляет пакеты, поступающие на интерфейс eth1:
 
 ```
--i lo - Интерфейс  
--o - На какой интерфейс
--p - Протокол (tcp,udp) для порта --dport на какой порт --to-port  
--s - IP
---to-destination IP (DNAT)
---to-source IP (SNAT)
---sport (source port)
-
--m time --timestart 09:00 --timestop 17:00, connlimit --connlimit-above 10
-```
-Таблицы nat, filter, mangle, raw    
-- nat - PREROUTING, POSTROUTING, OUTPUT  
-- filter - default  
-```
--t
+iptables -t nat -A PREROUTING -i eth1 --dport 80 -j DNAT --to-destination 192.213.13.1
 ```
 
+Изменяет адрес источника пакетов, выходящих из eth0:
 
+```
+iptables -t nat -A POSTROUTING -o eth0 --sport 80 -j SNAT --to-source 192.12.122.1
+```
+
+## Дополнительные параметры
+
+- -m time: Устанавливает временные рамки
+  - --timestart 09:00: Начало
+  - --timestop 17:00: Конец
+- connlimit: Ограничение на количество одновременных соединений
+  - --connlimit-above 10: Более 10 соединений
+- limit: Ограничение на количество пакетов
+  - --limit 10/s: 10 пакетов в секунду
+
+## Таблицы
+
+- nat: PREROUTING, POSTROUTING, OUTPUT
+- filter: По умолчанию
+- mangle
+- raw
