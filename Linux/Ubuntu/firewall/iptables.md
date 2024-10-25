@@ -5,7 +5,7 @@ OUTPUT, INPUT, FORWARD, PREROUTING (Исходящий, входящий, чер
 -D - Удалить
 -R - Заменить
 ```
-ACCEPT, REJECT, DROP, REDIRECT, MASQUERADE (Разрешить, отклонить и отбросить, редирект)
+ACCEPT, REJECT, DROP, REDIRECT, MASQUERADE, DNAT (Разрешить, отклонить и отбросить, редирект)
 ```
 -j  
 ```
