@@ -13,8 +13,9 @@ ACCEPT, REJECT, DROP, REDIRECT, MASQUERADE, DNAT (Разрешить, откло
 ```
 -i lo - Интерфейс  
 -o - На какой интерфейс
--p - Протокол (tcp,udp) для порта --dport на какой порт --to-ports  
+-p - Протокол (tcp,udp) для порта --dport на какой порт --to-port  
 -s - IP
+--to-destination IP (DNAT)
 ```
 Таблицы nat, filter, mangle, raw    
 - nat - PREROUTING, POSTROUTING, OUTPUT  
