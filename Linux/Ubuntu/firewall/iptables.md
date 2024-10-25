@@ -5,7 +5,7 @@ OUTPUT, INPUT, FORWARD, PREROUTING (Исходящий, входящий, чер
 -D - Удалить
 -R - Заменить
 ```
-ACCEPT, REJECT, DROP, REDIRECT, MASQUERADE, DNAT (Разрешить, отклонить и отбросить, редирект)
+ACCEPT, REJECT, DROP, REDIRECT, MASQUERADE, DNAT, SNAT (Разрешить, отклонить и отбросить, редирект)
 ```
 -j  
 ```
@@ -16,6 +16,10 @@ ACCEPT, REJECT, DROP, REDIRECT, MASQUERADE, DNAT (Разрешить, откло
 -p - Протокол (tcp,udp) для порта --dport на какой порт --to-port  
 -s - IP
 --to-destination IP (DNAT)
+--to-source IP (SNAT)
+--sport (source port)
+
+-m time --timestart 09:00 --timestop 17:00, connlimit --connlimit-above 10
 ```
 Таблицы nat, filter, mangle, raw    
 - nat - PREROUTING, POSTROUTING, OUTPUT  
