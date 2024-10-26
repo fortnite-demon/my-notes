@@ -11,3 +11,18 @@
 - ```gce_sd_config``` - получение информации о целях из google cloud engine.  
 - ```hetzner_sd_config``` - получение информации о целях из hetzner cloud.  
 - ```kubernetes_sd_config``` - получение информации о целях из Kubernetes API.  
+
+## Пример file_sd_config, где targets.json
+
+```Json
+[
+    {
+        "targets":[
+            "localhost:9090"
+        ],
+        "labels":{
+            "env":"prod"
+        }
+    }
+]
+```
