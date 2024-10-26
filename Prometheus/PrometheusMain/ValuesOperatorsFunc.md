@@ -7,6 +7,9 @@
 - GAUGE
   - ```delta()``` - Разность первого и последнего значения в range vector.
   - ```predict_linear()``` - Предсказывает значение метрики на заданное количество секунд вперед.
+  
+- HISTOGRAM
+  - ```histogram_quantile()``` - Персентиль
 
 #### Примеры
 *Суммируем значения по instance и вычисляем среднее кол. во запросов в секунду за последние 2 минуты*
@@ -16,6 +19,10 @@
 *Предсказываем на 120 секунд*
 ```
 predict_linear(prometheus_tsdb_blocks_loaded[120m], 120)
+```
+*80% персентиль на время ответа prometheus по http*
+```
+histogram_quantile(0.8, prometheus_http_request_duration_seconds_bucket)
 ```
 
 ## Операторы агрегирования
