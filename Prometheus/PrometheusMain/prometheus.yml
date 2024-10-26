@@ -8,3 +8,9 @@ scrape_configs:
     honor_labels: true # Запрещает prometheus изменять поступающие лейблы job и instance своими собственными
     static_configs:
       - targets: ["localhost:9091"]
+
+  - job_name: "autodiscovery"
+    file_sd_configs:
+      - file:
+          - '/opt/targets/.*json' # Автоматически ищет все файлы в /opt/targets
+        refresh_interval: 10s # Перечитывает файлы через 10 секунд
