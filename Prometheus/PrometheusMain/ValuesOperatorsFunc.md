@@ -37,12 +37,6 @@ predict_linear(prometheus_tsdb_blocks_loaded[120m], 120)
 histogram_quantile(0.8, prometheus_http_request_duration_seconds_bucket)
 ```
 
-*Суммарная нагрузка на CPU для всех инстансов*
-
-```
-sum(rate(node_cpu_seconds_total[5m])) by (instance)
-```
-
 *Процент использования памяти*
 
 ```
