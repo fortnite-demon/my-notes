@@ -18,7 +18,8 @@
 [
     {
         "targets":[
-            "localhost:9090"
+            "localhost:9090",
+            "10.1.1.2:9111"
         ],
         "labels":{
             "env":"prod"
