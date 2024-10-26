@@ -11,10 +11,18 @@
 - HISTOGRAM
   - ```histogram_quantile()``` - Персентиль
 
+## Операторы агрегирования
+
+- ```sum``` - суммирование
+- ```min``` - взять минимальное значение
+- ```max``` - взять максимальное значение
+- ```avg``` - взять среднее значение
+- ```count``` - подсчитать количество элементов в векторе
+- 
 #### Примеры
 *Суммируем значения по instance и вычисляем среднее кол. во запросов в секунду за последние 2 минуты*
 ```
-"sum by (instance) (rate(prometheus_http_requests_total{}[2m]))"
+sum by (instance) (rate(prometheus_http_requests_total{}[2m]))
 ```
 *Предсказываем на 120 секунд*
 ```
@@ -25,20 +33,55 @@ predict_linear(prometheus_tsdb_blocks_loaded[120m], 120)
 histogram_quantile(0.8, prometheus_http_request_duration_seconds_bucket)
 ```
 
-## Операторы агрегирования
+*Суммарная нагрузка на CPU для всех инстансов*
 
-- ```sum``` - суммирование
-- ```min``` - взять минимальное значение
-- ```max``` - взять максимальное значение
-- ```avg``` - взять среднее значение
-- ```count``` - подсчитать количество элементов в векторе
+```
+sum(rate(node_cpu_seconds_total[5m])) by (instance)
+```
 
-Так же можно сделать разбивку:
+*Процент использования памяти*
+
 ```
-user@desktop:~$ promtool query instant http://localhost:9090/ "sum by (job) (up)"
-{job="python"} => 1 @[1622720298.153]
-{job="prometheus"} => 1 @[1622720298.153]
+100 * (node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes
 ```
+
+*Запрос для получения максимальной задержки HTTP-запросов*
+
+```
+max(http_request_duration_seconds{status="200"}) by (instance)
+```
+
+*Количество HTTP-запросов по состоянию за последние 10 минут*
+
+```
+sum(increase(http_requests_total[10m])) by (status)
+```
+
+*Запрос для получения средних значений по метрике за последние 30 минут*
+
+```
+avg(rate(node_network_receive_bytes_total[30m])) by (instance)
+```
+
+*Запрос для вычисления общего объема переданных данных по сети*
+
+```
+sum(rate(node_network_transmit_bytes_total[1m])) by (instance)
+```
+
+*Запрос для получения количества ошибок 5xx за последние 5 минут*
+
+```
+sum(increase(http_requests_total{status=~"5.."}[5m])) by (instance)
+```
+
+*Запрос для вычисления средней загрузки за последние 15 минут*
+
+```
+avg(rate(node_load1[15m])) by (instance)
+```
+
+
 
 ## Типы данных в promql
 - Instant Vector - несколько time series метрик, которые отражают одно значение за определенное время, например:
