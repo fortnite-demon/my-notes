@@ -7,5 +7,7 @@ group:
         for: 1m
         labels:
           severity: critical
+          labelscount: "{{ len $labels }}"
         annotations:
-          summary: Instance is down!
+          summary: "Instance {{ $labels.instance }} down!"
+          description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for 1 minute."
