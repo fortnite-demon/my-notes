@@ -23,6 +23,7 @@ group:
       summary: Host out of disk space (instance {{ $labels.instance }})
       description: "Disk is almost full (< 10% left)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 ```
+*Прогноз на место на диске и не для только на чтение ли фс*
 ```yml
 - alert: HostDiskWillFillIn24Hours
   epxr: predict_linear(node_filesystem_avail_bytes{fstype!~"tmpfs"}[1h], 24 * 3600) < 0 and ON (instance, device, mountpoint) node_filesystem_readonly == 0
@@ -33,6 +34,7 @@ group:
     summary: Host disk will fill in 24 hours (instance {{ $labels.instance }})
     description: "Filesystem is predicted to run out of space within the next 24 hours at current write rate\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 ```
+*Сильная загруженность*
 ```yml
   - alert: HostHighCpuLoad
     expr: 100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[2m])) * 100) > 80
