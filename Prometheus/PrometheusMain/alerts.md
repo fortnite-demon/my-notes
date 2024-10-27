@@ -59,3 +59,15 @@ group:
       summary: Host out of memory (instance {{ $labels.instance }})
       description: "Node memory is filling up (< 10% left)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
 ```
+## Network
+*Если сетевой интерфейс принимает более 100мб в секунду*
+```yml
+- alert: HostUnusualNetworkThroughputIn
+    expr: sum by (instance) (rate(node_network_receive_bytes_total[2m])) / 1024 / 1024 > 100
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      summary: Host unusual network throughput in (instance {{ $labels.instance }})
+      description: "Host network interfaces are probably receiving too much data (> 100 MB/s)\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+```
