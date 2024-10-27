@@ -30,5 +30,7 @@ route add -net 10.100.0.0 netmask 255.0.0.О reject
 
 ```traceroute``` - Отслеживает путь пакета
 
+```nmcli``` - NetworkManager client
+
 ## ifconfig
 ```ifconfig <интерфейс> promisc``` - Команда для перехвата пакетов которые были не для этой сетевой карты
