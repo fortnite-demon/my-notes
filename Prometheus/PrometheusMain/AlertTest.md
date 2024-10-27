@@ -1,4 +1,4 @@
-```bash
+```
 promtool test rules test.yml
 ```
 
