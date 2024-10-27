@@ -10,7 +10,10 @@ group:
           severity: critical
         annotations:
           summary: "Instance {{ $labels.instance }} down!"
-          description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for 1 minute."
+          description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for 1 minute. VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+# VALUE - Значение полученное из expr
+# LABELS - Все лейблы
 ```
 ## Disk
 ```yml
