@@ -1,3 +1,8 @@
+```bash
+promtool test rules test.yml
+```
+
+```yml
 # Путь к файлу с алертами
 rule_files:
     - alerts.yml
@@ -31,3 +36,4 @@ tests:
                   exp_annotations: # Какие аннотации должны быть у алерта
                       summary: "Instance localhost:9090 down"
                       description: "localhost:9090 of job prometheus has been down for 1 minute."
+```
