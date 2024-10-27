@@ -1,5 +1,5 @@
 ```
-promtool test rules test.yml
+promtool test rules AlertTest.yml
 ```
 
 ```yml
