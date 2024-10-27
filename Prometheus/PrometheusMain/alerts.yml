@@ -1,0 +1,11 @@
+group:
+  - name: Instances
+    interval: 10s
+    rules:
+      - alert: InstanceDown
+        expr: up == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: Instance is down!
