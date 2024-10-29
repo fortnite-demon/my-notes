@@ -32,6 +32,7 @@ inhibit_rules: # Указываем source и target и если совпаде�
       - label='value'
     target_matchers: # Также target_matchers_re
       - label='value'
+    equal: ["instance"]
     
 templates: # Шаблон для отправки сообщений
   - /path/file
@@ -39,50 +40,49 @@ templates: # Шаблон для отправки сообщений
 
 ## Примеры
 ```yml
-route:
-  group_by: [cluster, alertname]
-  group_wait: 30s
-  group_interval: 5m
-  repeat_interval: 30m
-  receiver: 'web.hook'
-  routes:
-    - receiver: 'telegram'
-      matchers:
-        - severity='critical'
-      continue: true
-      mute_time_intervals:
-        - offhours
-        - holidays
+templates:
+    - "templates/telegram-template.tmpl"
 
-    - receiver: 'slack'
-      group_by: [product]
-      group_wait: 10s
-      matchers:
-        - severity='warning'
-      active_time_intervals:
-        - offhours
-        - holidays
+route:
+    group_by: ["severity"]
+    group_interval: "5m"
+    group_wait: "30s"
+    repeat_interval: "30m"
+    receiver: "null"
+    routes:
+      - receiver: "telegram"
+        group_by: ["product", "dev"]
+        continue: true
+        matchers:
+          - severity="critical"
+        active_time_intervals:
+          - offhours
+          - holidays
+
+      - receiver: "next"
+        matchers:
+          - severity="warning"
+        mute_time_intervals:
+          - offhours
+          - holidays
 
 receivers:
-  - name: 'web.hook'
-    webhook_config:
-      - url:
-        http_config: # Default global.http_config
+  - name: "null"
+  - name: "telegram"
+    telegram_configs:
+    - api_url: https://api.telegram.org
+      send_resolved # Default false Стоит ли отправлять уведомление когда проблема была решена
+      bot_token: "81432057474:AAHgXJyWa1b-E6K6PsDJhleQgOXtlPRW7X4"
+      chat_id: 63489331
+      message: '{{ template "telegram_message" .}}'
+      http_config: # Default global.http_config
+      parse_mode: # Default HTML
 
-  - name: 'telegram'
-    telegram_config:
-      - api_url:
-        send_resolved # Default false Стоит ли отправлять уведомление когда проблема была решена
-        bot_token:
-        chat_id:
-        message: # Default default = '{{ template "telegram.default.message" .}}'
-        parse_mode: # Default HTML
-        http_config: # Default global.http_config
+inhibit_rules:
+    - source_matchers:
+        - severity="critical"
+      target_matchers:
+        - severity="warning"
+      equal: ["instance"]
 
-inhibit_rule:
-  - source_match:
-      - severity='critical'
-    target_match:
-      - severity='warning'
-    equal: ['instance']
 ```
