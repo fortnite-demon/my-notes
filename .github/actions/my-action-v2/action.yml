@@ -10,4 +10,7 @@ outputs:
     description: lol
 runs:
   using: 'composite'
-  steps: ...
+  steps:
+    - name: first step
+      run: 
+      shell: bash
