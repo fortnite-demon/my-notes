@@ -12,21 +12,13 @@
 {{ end }}
 
 {{ else }}
-Alert: {{ .CommonLabels.alertname }} # В единичном алерте они будут здесь
+Alert: {{ .CommonLabels.alertname }} active!# В единичном алерте они будут здесь
 
 Instance: {{ .CommonLabels.instance }}
 Severity: {{ .CommonLabels.severity }}
 Value: {{ (index .Alerts 0).Value }}
-
-Labels:
-{{ range .Alerts.Labels }}
-  - {{ .Key }}: {{ .Value }}
-{{ end }}
-
-Annotations:
-{{ range .Alerts.Annotations }}
-  - {{ .Key }}: {{ .Value }}
-{{ end }}
+Summary: {{ .CommonAnnotations.summary }}
+Description: {{ .CommonAnnotations.description }}
 
 {{ end }}
 
