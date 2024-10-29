@@ -66,18 +66,18 @@ route:
 receivers:
   - name: 'web.hook'
     webhook_config:
-      url:
-      http_config: # Default global.http_config
+      - url:
+        http_config: # Default global.http_config
 
   - name: 'telegram'
     telegram_config:
-      send_resolved # Default false Стоит ли отправлять уведомление когда проблема была решена
-      api_url:
-      bot_token:
-      chat_id:
-      message:
-      parse_mode: # Default default = '{{ template "telegram.default.message" .}}'
-      http_config: # Default global.http_config
+      - api_url:
+        send_resolved # Default false Стоит ли отправлять уведомление когда проблема была решена
+        bot_token:
+        chat_id:
+        message:
+        parse_mode: # Default default = '{{ template "telegram.default.message" .}}'
+        http_config: # Default global.http_config
 
 inhibit_rule:
   - source_match:
