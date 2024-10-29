@@ -1,3 +1,5 @@
+# Если репозиторий public, то можем запустить workflow так: fortnite-demon/repo/.github/actions/directory@main
+
 name: Your action
 description: Description for action
 inputs:
