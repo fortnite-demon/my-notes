@@ -2,6 +2,8 @@
 
 ```yml
 global:
+  http_config:
+  telegram_api_url:
 
 route:
   group_by: [cluster, alertname] # По чему группировать алерты
@@ -63,13 +65,18 @@ route:
 
 recievers:
   - name: 'web.hook'
-    webhook_configs:
+    webhook_config:
       url:
-      http_configs:
+      http_config: # Default global.http_config
+
   - name: 'telegram'
-    telegram_configs:
-      
-    
+    telegram_config:
+      api_url:
+      bot_token:
+      chat_id:
+      message:
+      parse_mode: # Default HTML
+      http_config: # Default global.http_config
 
 inhibit_rule:
   - source_match:
