@@ -17,7 +17,7 @@ route:
     - label='value'
   receiver: 'web.hook' # Маршрут по умолчанию
   routes:
-    - name: 'frontend-pager'
+    - receiver: 'frontend-pager'
       group_by: [product, environment]
       matchers:
       - team="frontend"
@@ -46,7 +46,7 @@ route:
   repeat_interval: 30m
   receiver: 'web.hook'
   routes:
-    - name: 'telegram'
+    - receiver: 'telegram'
       matchers:
         - severity='critical'
       continue: true
@@ -54,7 +54,7 @@ route:
         - offhours
         - holidays
 
-    - name: 'slack'
+    - receiver: 'slack'
       group_by: [product]
       group_wait: 10s
       matchers:
