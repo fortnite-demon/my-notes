@@ -10,7 +10,7 @@ Severity: {{ .CommonLabels.severity }}
 {{ range .Alerts }} # Range всех сгруппированых алертов
 - Alert: {{ .Labels.alertname }}
   Summary: {{ .Annotations.summary }}
-  Description: {{ .Annotations.summary }}
+  Description: {{ .Annotations.description }}
 {{ end }}
 
 {{ if }}
