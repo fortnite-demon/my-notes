@@ -1,23 +1,27 @@
 ```go
 {{ define "telegram_message" }}
-:siren: Alert: {{ .CommonLabels.alertname }} :siren: # Общие метки для всех
+{{ if gt (len .Alerts) 1 }}
+:siren: Multiple Alerts: {{ .CommonLabels.alertname }} :siren: # Common это совпадающая у всех, если не совпадают lable то пустая
 
-Description: {{ .CommonAnnotations.summary }}
-
-Instance: {{ .CommonLabels.instance }}
-Severity: {{ .CommonLabels.severity }}
-
-{{ range .Alerts }} # Range всех сгруппированых алертов
-- Alert: {{ .Labels.alertname }}
-  Summary: {{ .Annotations.summary }}
+{{ range .Alerts }} # Массив объединенных алертов
+- Alert Name: {{ .Labels.alertname }}
+  Instance: {{ .Labels.instance }}
+  Severity: {{ .Labels.severity }}
+  Value: {{ .Value }}
   Description: {{ .Annotations.description }}
 {{ end }}
 
-{{ if }}
-
 {{ else }}
+:siren: Alert: {{ .CommonLabels.alertname }} :siren: # В единичном алерте они будут здесь
+
+Description: {{ .CommonAnnotations.description }}
+
+Instance: {{ .CommonLabels.instance }}
+Severity: {{ .CommonLabels.severity }}
+Value: {{ (index .Alerts 0).Value }}
 
 {{ end }}
 
+[View in Prometheus]({{ .ExternalURL }})
 {{ end }}
 ```
