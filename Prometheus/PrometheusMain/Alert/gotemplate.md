@@ -12,16 +12,23 @@
 {{ end }}
 
 {{ else }}
-:siren: Alert: {{ .CommonLabels.alertname }} :siren: # В единичном алерте они будут здесь
-
-Description: {{ .CommonAnnotations.description }}
+Alert: {{ .CommonLabels.alertname }} # В единичном алерте они будут здесь
 
 Instance: {{ .CommonLabels.instance }}
 Severity: {{ .CommonLabels.severity }}
 Value: {{ (index .Alerts 0).Value }}
 
+Labels:
+{{ range .Alerts.Labels }}
+  - {{ .Key }}: {{ .Value }}
 {{ end }}
 
-[View in Prometheus]({{ .ExternalURL }})
+Annotations:
+{{ range .Alerts.Annotations }}
+  - {{ .Key }}: {{ .Value }}
+{{ end }}
+
+{{ end }}
+
 {{ end }}
 ```
