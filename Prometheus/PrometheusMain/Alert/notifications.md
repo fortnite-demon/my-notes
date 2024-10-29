@@ -17,7 +17,7 @@ route:
     - label='value'
   reciever: 'web.hook' # Маршрут по умолчанию
   rules:
-    - receiver: 'frontend-pager'
+    - name: 'frontend-pager'
       group_by: [product, environment]
       matchers:
       - team="frontend"
