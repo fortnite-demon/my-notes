@@ -71,6 +71,7 @@ recievers:
 
   - name: 'telegram'
     telegram_config:
+      send_resolved # Default false Стоит ли отправлять уведомление когда проблема была решена
       api_url:
       bot_token:
       chat_id:
