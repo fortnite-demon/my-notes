@@ -25,8 +25,12 @@ route:
 
 recievers:
 
-inhibit_rules:
-
+inhibit_rules: # Указываем source и target и если совпадет в equal то второй алерт не будет отправлен
+  - source_matchers: # Также source_matchers_re
+      - label='value'
+    target_matchers: # Также target_matchers_re
+      - label='value'
+    
 templates: # Шаблон для отправки сообщений
   - /path/file
 ```
