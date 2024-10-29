@@ -75,8 +75,8 @@ receivers:
         send_resolved # Default false Стоит ли отправлять уведомление когда проблема была решена
         bot_token:
         chat_id:
-        message:
-        parse_mode: # Default default = '{{ template "telegram.default.message" .}}'
+        message: # Default default = '{{ template "telegram.default.message" .}}'
+        parse_mode: # Default HTML
         http_config: # Default global.http_config
 
 inhibit_rule:
