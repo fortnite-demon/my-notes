@@ -15,7 +15,7 @@ route:
   match_re: [label: 'regex']
   matchers:
     - label='value'
-  reciever: 'web.hook' # Маршрут по умолчанию
+  receiver: 'web.hook' # Маршрут по умолчанию
   rules:
     - name: 'frontend-pager'
       group_by: [product, environment]
@@ -25,7 +25,7 @@ route:
       mute_time_intervals: # Список в которое маршрут недоступен
       active_time_intervals: # Список в которое маршрут доступен
 
-recievers:
+receivers:
 
 inhibit_rules: # Указываем source и target и если совпадет в equal то второй алерт не будет отправлен
   - source_matchers: # Также source_matchers_re
@@ -44,7 +44,7 @@ route:
   group_wait: 30s
   group_interval: 5m
   repeat_interval: 30m
-  reciever: 'web.hook'
+  receiver: 'web.hook'
   rules:
     - name: 'telegram'
       matchers:
@@ -63,7 +63,7 @@ route:
         - offhours
         - holidays
 
-recievers:
+receivers:
   - name: 'web.hook'
     webhook_config:
       url:
