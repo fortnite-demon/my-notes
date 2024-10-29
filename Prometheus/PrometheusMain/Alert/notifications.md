@@ -75,7 +75,7 @@ recievers:
       bot_token:
       chat_id:
       message:
-      parse_mode: # Default HTML
+      parse_mode: # Default default = '{{ template "telegram.default.message" .}}'
       http_config: # Default global.http_config
 
 inhibit_rule:
