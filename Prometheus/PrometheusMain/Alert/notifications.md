@@ -16,7 +16,7 @@ route:
   matchers:
     - label='value'
   receiver: 'web.hook' # Маршрут по умолчанию
-  rules:
+  routes:
     - name: 'frontend-pager'
       group_by: [product, environment]
       matchers:
@@ -45,7 +45,7 @@ route:
   group_interval: 5m
   repeat_interval: 30m
   receiver: 'web.hook'
-  rules:
+  routes:
     - name: 'telegram'
       matchers:
         - severity='critical'
