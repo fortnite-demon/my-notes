@@ -64,6 +64,11 @@ route:
 recievers:
   - name: 'web.hook'
     webhook_configs:
+      url:
+      http_configs:
+  - name: 'telegram'
+    telegram_configs:
+      
     
 
 inhibit_rule:
