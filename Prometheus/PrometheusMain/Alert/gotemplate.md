@@ -5,7 +5,7 @@
 
 ```go
 {{ define "telegram_message" }}
-{{ if gt ( len .Alerts) 1 }}
+{{ if gt ( len .Alerts ) 1 }}
 Multiple alerts!
 {{ range .Alerts }}
 - AlertName: {{ .Labels.alertname }}
@@ -17,8 +17,8 @@ Multiple alerts!
 
 {{ else }}
 
-{{ if ( index .Alerts 0).Status "Firing" }}
-Alert {{ .CommonLabels.alertname }] active!
+{{ if eq ( index .Alerts 0).Status "firing" }}
+Alert {{ .CommonLabels.alertname }} active!
 
 Details:
   Instance: {{ .CommonLabels.instance }}
