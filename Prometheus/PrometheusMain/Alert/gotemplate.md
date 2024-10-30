@@ -13,6 +13,7 @@ Multiple alerts!
   Summary: {{ .Annotations.summary }}
   Description: {{ .Annotations.description }}
   StartsAt: {{ .StartsAt.Format "2006-01-02 11:01:01 MSK" }}
+{{ end }}
 
 {{ else }}
 
