@@ -1,3 +1,6 @@
+[DOCS](https://prometheus.io/docs/prometheus/latest/configuration/configuration)
+
+```yml
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
@@ -7,7 +10,7 @@ rule_files:
 
 alerting:
   alertmanagers:
-    - static_configs:
+    - static_configs: # Можем также указать file_sd_configs
         - targets: ["localhost:9390"]
 
 scrape_configs:
@@ -22,3 +25,4 @@ scrape_configs:
       - file:
           - '/opt/targets/.*json' # Автоматически ищет все файлы в /opt/targets
         refresh_interval: 10s # Перечитывает файлы через 10 секунд
+```
