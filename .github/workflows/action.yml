@@ -13,7 +13,7 @@ jobs:
           - macos-latest
         params:
           - version: v1.0.0
-            env:
+            env: # К последующим тоже будет применяться массив, например если будет вложенность у M1
               - M1: 1
                 M2: 2
           - version: v2.0.0
@@ -22,7 +22,7 @@ jobs:
                 M2: 2
         exclude:
           - os: macos-latest
-            params: { version: v2.0.0, env: [ {M1: 1, M2: 2} ] }
+            params: { version: v2.0.0, env: [ {M1: 1, M2: 2} ] } 
             
     steps:
       - name: first step
