@@ -1,28 +1,30 @@
-name: workflow
+name: Matrix Workflow
 
-on: workflow_dispatch
+on:
+  push:
 
 jobs:
-  build:
+  matrix-job:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-          os:
+        os:
           - ubuntu-latest
-          - windows-latest
           - macos-latest
-        
+        params:
+          - version: v1.0.0
+            env:
+              - M1: 1
+                M2: 2
+          - version: v2.0.0
+            env:
+              - M1: 1
+                M2: 2
+        exclude:
+          - os: macos-latest
+            params: { version: v2.0.0, env: [ {M1: 1, M2: 2} ] }
+            
     steps:
-    - uses: actions/checkout@v4
-      
-    - name: Ubuntu depends
-      if: ${{ matrix.os == 'Ubuntu-latest' }}
-      run: echo "This is Ubuntu"
-
-    - name: Windows depends
-      if: ${{ matrix.os == 'Windows-latest' }}
-      run: echo "This is Windows"
-
-    - name: MacOS depends
-      if: ${{ matrix.os == 'Macos-latest' }}
-      run: echo "This is MacOS"
+      - name: first step
+        run: |
+          echo Runs on ${{ matrix.os }} with ${{ matrix.params.env[0].M1 }}
