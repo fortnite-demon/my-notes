@@ -60,8 +60,8 @@ route:
           - holidays
 
       - receiver: "next"
-        matchers:
-          - severity=~"warning|test"
+        matchers_re:
+          - severity="warning|test"
         mute_time_intervals:
           - offhours
           - holidays
