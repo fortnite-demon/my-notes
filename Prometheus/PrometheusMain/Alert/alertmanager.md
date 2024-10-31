@@ -28,9 +28,9 @@ route:
 receivers:
 
 inhibit_rules: # Указываем source и target и если совпадет в equal то второй алерт не будет отправлен
-  - source_matchers: # Также source_matchers_re
+  - source_matchers: # Также source_match_re
       - label='value'
-    target_matchers: # Также target_matchers_re
+    target_matchers: # Также target_match_re
       - label='value'
     equal: ["instance"]
     
