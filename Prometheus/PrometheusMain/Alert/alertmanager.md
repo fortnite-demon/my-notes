@@ -6,7 +6,7 @@ global:
   telegram_api_url:
 
 route:
-  group_by: [cluster, alertname] # По чему группировать алерты
+  group_by: [cluster, alertname] # По чему группировать алерты, [...] если не хотим группировать
   group_wait: 30s # Как долго нужно изначально ожидать отправки группы
   group_interval: 5m # Интервал между отправкой групп
   repeat_interval: 1h # Через сколько отправлять нотификацию если алерт еще активен
