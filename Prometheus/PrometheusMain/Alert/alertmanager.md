@@ -7,12 +7,11 @@ global:
 
 route:
   group_by: [cluster, alertname] # По чему группировать алерты
-  group_wait: 30s # Как долго нужно изначально ожидать отправки уведомления для группы
+  group_wait: 30s # Как долго нужно изначально ожидать отправки группы
   group_interval: 5m # Интервал между отправкой групп
   repeat_interval: 1h # Через сколько отправлять нотификацию если алерт еще активен
   # Если интервалы не указаны то дочерние маршруты унаследуют от родительского
   continue: true/false # Следует ли продолжать сопоставлять с другими маршрутами, по умолч. false
-  match_re: [label: 'regex']
   matchers:
     - label='value'
   receiver: 'web.hook' # Маршрут по умолчанию
@@ -28,9 +27,9 @@ route:
 receivers:
 
 inhibit_rules: # Указываем source и target и если совпадет в equal то второй алерт не будет отправлен
-  - source_matchers: # Также source_match_re
+  - source_matchers:
       - label='value'
-    target_matchers: # Также target_match_re
+    target_matchers:
       - label='value'
     equal: ["instance"]
     
@@ -60,7 +59,8 @@ route:
           - holidays
 
       - receiver: "next"
-        match_re: ["severity: warning|test"]
+        matchers:
+          - severity=~"critical|warning"
         mute_time_intervals:
           - offhours
           - holidays
