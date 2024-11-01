@@ -2,6 +2,8 @@ name: Matrix Workflow
 
 on:
   push:
+    branches:
+      - 'notbranch'
 
 jobs:
   matrix-job:
