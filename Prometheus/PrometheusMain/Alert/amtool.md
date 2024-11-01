@@ -6,7 +6,7 @@
 ```amtool silence query``` - Текущие заглушенные маршруты или можем еще добавить <silence_id> для детального вывода
 
 ## Alert
-```amtool alert add instance="localhost:9100" severity="critical" alertname="myalert"```
+```amtool alert add --expires=10m instance="localhost:9100" severity="critical" alertname="myalert"```
 
 ## Проверки конфига, маршруты
 
