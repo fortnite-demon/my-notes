@@ -19,7 +19,7 @@ alerting:
 scrape_configs:
   - job_name: "pushgateway"
     metrics_path: /metrics
-    honor_labels: true # Запрещает prometheus изменять поступающие лейблы job и instance своими собственными
+    honor_labels: true # Заставляет prometheus сохранять исходные теги instance и job, которые ему отдаст экспортер 
     static_configs:
       - targets: ["localhost:9091"]
 
