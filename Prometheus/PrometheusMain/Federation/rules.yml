@@ -1,1 +1,6 @@
-
+groups:
+  - name: globaldc
+    interval: 5s
+    rules:
+    - record: job:node_memory_MemTotal_bytes:sum
+      expr: sum without(instance)(node_memory_MemTotal_bytes{job="node"})
