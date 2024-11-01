@@ -28,4 +28,14 @@ scrape_configs:
       - file:
           - '/opt/targets/.*json' # Автоматически ищет все файлы в /opt/targets
         refresh_interval: 10s # Перечитывает файлы через 10 секунд
+
+  - job_name: federation
+    honor_labels: true
+    metrics_path: /federate
+    params:
+      match[]:
+        - '{__name__=~"^job:.*"}'
+    static_configs:
+      - targets:
+        - 167.172.104.138:9090
 ```
