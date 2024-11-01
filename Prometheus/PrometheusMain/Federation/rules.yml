@@ -3,5 +3,6 @@ groups:
     interval: 5s # Выполнять запросы из этой группы каждые 5 секунд
     rules:
     - record: job:node_memory_MemTotal_bytes:sum # level:metric:operations
-                                                 # level - Уровень агрегирования, metric - имя метрики, operations - список действий, применимых к метрике
+                                                 # level - Уровень агрегирования, metric - имя метрики, 
+                                                 # operations - список действий, применимых к метрике
       expr: sum without(instance)(node_memory_MemTotal_bytes{job="node"})
