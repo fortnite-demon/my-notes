@@ -39,4 +39,7 @@ scrape_configs:
     static_configs:
       - targets:
         - 167.172.104.138:9090
+
+remote_write: # Для записи в базу данных, например через kafka
+  - url: http://localhost:port/receive
 ```
