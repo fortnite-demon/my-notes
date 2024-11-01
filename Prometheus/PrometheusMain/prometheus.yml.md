@@ -4,6 +4,8 @@
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
+  external_labels:   # Будут добавляться лейблы, когда prometheus будет взаимодействовать с внешним сервисом:
+    datacenter: dc1  # федерация, алертменеджер, запись данных во внешнюю систему
 
 rule_files:
   - "alerts.yml"
