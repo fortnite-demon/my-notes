@@ -1,3 +1,9 @@
+## Silence
+```amtool silence add --duration=2h --comment="Your comment" --author="me" alertname=ExampleAlert``` - Заглушить маршрут  
+
+```amtool silence expire <silence_id>``` - Удаление заглушенного маршрута  
+
+```amtool silence query``` - Текущие заглушенные маршруты или можем еще добавить <silence_id> для детального вывода
 
 ## Проверки конфига, маршруты
 
