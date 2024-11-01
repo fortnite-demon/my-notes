@@ -47,6 +47,8 @@ services:
       
     networks:
       - prediction-network
+
+    network_mode: "host", "none", "service:[service name", "container:[container name]" # service и container предоставляют доступ к указанному контейнеру
       
     volumes:
       - ./prediction:/app
