@@ -35,7 +35,7 @@ scrape_configs:
     params:
       match[]:
         - '{__name__=~"^job:.*"}'
-        - '{job="app"}
+        - '{job="app"}'
     static_configs:
       - targets:
         - 167.172.104.138:9090
