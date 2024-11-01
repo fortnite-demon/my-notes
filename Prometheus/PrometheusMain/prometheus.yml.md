@@ -29,7 +29,7 @@ scrape_configs:
           - '/opt/targets/.*json' # Автоматически ищет все файлы в /opt/targets
         refresh_interval: 10s # Перечитывает файлы через 10 секунд
 
-  - job_name: federation
+  - job_name: federation # Настройка для центрального сервера, который будет забирать метрики
     honor_labels: true
     metrics_path: /federate
     params:
