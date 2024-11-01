@@ -8,7 +8,8 @@ global:
     datacenter: dc1  # федерация, алертменеджер, запись данных во внешнюю систему
 
 rule_files:
-  - "alerts.yml"
+  - "alerts.yml" # Правила алертинга
+  - "rules.yml" # Правило создания новых метрик
 
 alerting:
   alertmanagers:
