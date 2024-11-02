@@ -1,5 +1,4 @@
 ```
-root@prometheus:~# cat > req.conf << EOF
 [req]
 distinguished_name = req_distinguished_name
 x509_extensions = v3_req
@@ -17,7 +16,6 @@ extendedKeyUsage = serverAuth
 subjectAltName = @alt_names
 [alt_names]
 DNS.1 = node_exporter.fortnite.com
-EOF
 ```
 
 ```server_name node_exporter.fortnite.com``` - Также нужно добавить в nginx
