@@ -19,3 +19,5 @@ subjectAltName = @alt_names
 DNS.1 = node_exporter.fortnite.com
 EOF
 ```
+
+```server_name node_exporter.fortnite.com``` - Также нужно добавить в nginx
