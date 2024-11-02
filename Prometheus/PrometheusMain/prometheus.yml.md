@@ -44,6 +44,7 @@ scrape_configs:
     scheme: https
     tls_config:
       ca_file: /path/to/ca.crt
+      server_name: node_exporter.fornite.com
     basic_auth:
       username: user
       password: pass
