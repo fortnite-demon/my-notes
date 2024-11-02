@@ -115,6 +115,11 @@ sudo iptables -A INPUT -p tcp --dport 80 -m limit --limit 10/s -j ACCEPT
 sudo iptables -A INPUT -p tcp --dport 80 -j DROP
 ```
 
+ESTABLISHED - пакеты относяться к соединению, RELATED - связанные с соединением
+```
+sudo iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+```
+
 Логировать входящие пакеты, которые не соответствуют правилам:
 ```
 sudo iptables -A INPUT -j LOG --log-prefix "iptables: " --log-level 4
