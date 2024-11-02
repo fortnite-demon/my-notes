@@ -19,6 +19,8 @@ server {
   ssl_sertificate /etc/letsencrypt/live/my.server.com/fullchain.pem;
   ssl_sertificate /etc/letsencrypt/live/my.server.com/privkey.pem;
 
+  server_name my.server.com;
+
   location / {
     proxy_pass ...
   }
