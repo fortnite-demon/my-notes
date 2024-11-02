@@ -10,7 +10,7 @@ server {
     root /opt/www;
   }
   location / {
-    return https://my.server.com$request_uri;
+    return 301 https://my.server.com$request_uri;
   }
 }
 server {
