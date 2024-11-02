@@ -40,6 +40,16 @@ scrape_configs:
       - targets:
         - 167.172.104.138:9090
 
+  - job_name: "tls connection"
+    scheme: https
+    tls_config:
+      ca_file: /path/to/ca.crt
+    basic_auth:
+      username: user
+      password: pass
+    static_configs:
+      - targets: ["158.23.2.12:9100"]
+
 remote_write: # Для записи в базу данных, например через kafka
   - url: http://localhost:port/receive
 ```
