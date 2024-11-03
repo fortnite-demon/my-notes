@@ -16,6 +16,8 @@ extendedKeyUsage = serverAuth
 subjectAltName = @alt_names
 [alt_names]
 DNS.1 = node_exporter.fortnite.com
+# Или можем также добавить, тогда server_name в prometheus указывать не придётся
+IP.1 = 10.10.0.252
 ```
 
 ```server_name node_exporter.fortnite.com``` - Также нужно добавить в nginx (но работало и без него)
