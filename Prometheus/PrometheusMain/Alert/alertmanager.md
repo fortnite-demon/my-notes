@@ -70,7 +70,7 @@ receivers:
   - name: "telegram"
     telegram_configs:
     - api_url: https://api.telegram.org
-      send_resolved # Default false Стоит ли отправлять уведомление когда проблема была решена
+      send_resolved: # Default false Стоит ли отправлять уведомление когда проблема была решена
       bot_token: "81432057474:AAHgXJyWa1b-E6K6PsDJhleQgOXtlPRW7X4"
       chat_id: 63489331
       message: '{{ template "telegram_message" .}}'
