@@ -25,7 +25,7 @@ scrape_configs:
 
   - job_name: "autodiscovery"
     file_sd_configs:
-      - file:
+      - files:
           - '/opt/targets/.*json' # Автоматически ищет все файлы в /opt/targets
         refresh_interval: 10s # Перечитывает файлы через 10 секунд
 
