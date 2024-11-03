@@ -5,3 +5,4 @@
 ```curl -X POST -D - -s http://localhost:9090/api/v1/admin/tsdb/snapshot``` - Выполняем снапшот
 
 - ```-D -``` - Выводить все заголовки на стандартный stout -
+- Также нужно включить ```--web.enable-admin-api```
