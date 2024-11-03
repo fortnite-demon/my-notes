@@ -9,13 +9,13 @@ ST = Moscow
 L = Moscow
 O = Company
 OU = IT
-CN = node_exporter.fortnite.com
+CN = mearme.com
 [v3_req]
 keyUsage = keyEncipherment, dataEncipherment
 extendedKeyUsage = serverAuth
 subjectAltName = @alt_names
 [alt_names]
-DNS.1 = node_exporter.fortnite.com
+DNS.1 = monitoring.mearme.com
 # Или можем также добавить, тогда server_name в prometheus указывать не придётся
 IP.1 = 10.10.0.252
 ```
