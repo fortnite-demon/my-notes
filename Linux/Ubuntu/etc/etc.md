@@ -14,6 +14,8 @@
 
 ```/network/interfaces``` - 
 
+```/profile``` - как .bashrc но глобально для всех пользователей
+
 GRUB
 ```
 /default/grub
