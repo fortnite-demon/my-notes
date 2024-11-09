@@ -1,6 +1,7 @@
 [Unit] # Метаданные и зависимости
 Description=Service
 After=network-online.target # После чего
+Before=
 Wanted=network-online.target # Одновременно с чем
 
 [Service]
