@@ -67,9 +67,9 @@ COPY app.py /app/
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0"]
 ```
 **Использование Slim**
-```
+```Dockerfile
 FROM python:3.12.1 as builder
-# -- Медленные операции --
+
 # Установка системных зависимостей (в т.ч. для зависимостей python)
 RUN apt-get update \
     && apt-get install -y --no-install-recommends gcc \
@@ -78,8 +78,6 @@ RUN apt-get update \
 # Установка зависмостей python в диррекиторию /app/wheels
 RUN --mount=type=bind,source=requirements.txt,target=/app/requirements.txt \
   pip wheel --no-cache-dir --no-deps -r /app/requirements.txt --wheel-dir /app/wheels
-
-# ---------
 
 FROM python:3.12.1-slim
 
