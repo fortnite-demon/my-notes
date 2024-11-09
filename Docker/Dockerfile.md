@@ -9,6 +9,10 @@ ARG PLATFORM
 ```
 ```Dockerfile
 RUN
+    --mount=from=name,target=/src <<EOF
+      mkdir -p /dotnet
+      tar -oxzf /src/dotnet.tar.gz -C /dotnet
+      EOF
     --mount=type=cache,target=/root/.cache/pip \                         | cache для кеша
     --mount=type=bind,source=requirements.txt,target=requirements.txt \  | bind rw, можно изменить на readonly
     --mount=type=bind, from=name ...  
@@ -55,7 +59,7 @@ LABEL <key>=<value> <key>=<value> <key>=<value> ...
 EXPOSE 80/tcp
 ```
 ```Dockerfile
-ADD <src> <dst> --chown --chmod --exclude
+ADD <src> <dst> --chown --chmod --exclude --checksum=sha256:hash
 ```
 ```Dockerfile
 ONBUILD <ADD/ARG/или любой> будет выполняться когда будут использовать образ в качестве FROM
