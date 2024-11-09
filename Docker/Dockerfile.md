@@ -3,7 +3,7 @@ ARG PLATFORM=linux | ARG объявлен до FROM, чтобы использо
                      мы также можем использовать ARG как обычно, с указанием значений.
 ```
 ```Dockerfile 
-FROM --platform=${PLATFORM}/amd64 [image:tag] AS name
+FROM --platform=${PLATFORM}/amd64 [image:tag] AS name # scratch - Если мы хотим создать свой образ без основы
 
 ARG PLATFORM
 ```
