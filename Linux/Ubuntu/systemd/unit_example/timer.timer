@@ -1,4 +1,3 @@
-```
 [Unit]
 Description=Example
 
@@ -9,4 +8,3 @@ OnCalendar=*-*-* *:*:00
 
 [Install]
 WantedBy=timers.target
-```
