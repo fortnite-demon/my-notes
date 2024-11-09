@@ -54,15 +54,15 @@ RUN apk add --no-cache libpq
 # Устанавливаем зависимости python не пересобирая их
 RUN pip install --no-cache --no-cache-dir /wheels/*
 
-# Копирование кода приложения
-COPY app.py /app/
+WORKDIR /app
 
 RUN addgroup --system app \
   && adduser --system --group app \
   && chown -R app:app /app/
 USER app
 
-WORKDIR /app
+# Копирование кода приложения
+COPY app.py /app/
 
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0"]
 ```
