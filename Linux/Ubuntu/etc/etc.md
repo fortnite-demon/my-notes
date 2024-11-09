@@ -14,13 +14,4 @@
 
 ```/network/interfaces``` - 
 
-```/profile``` - как .bashrc но глобально для всех пользователей
-
-GRUB
-```
-/default/grub
-                     
-/grub.d/
-
-/boot/grub/grub.cfg
-```
+```/profile``` - глобальная среда для всех пользователей
