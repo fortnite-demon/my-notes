@@ -57,6 +57,11 @@ RUN pip install --no-cache --no-cache-dir /wheels/*
 # Копирование кода приложения
 COPY app.py /app/
 
+RUN addgroup --system app \
+  && adduser --system --group app \
+  && chown -R app:app /app/
+USER app
+
 WORKDIR /app
 
 CMD ["uvicorn", "app:app", "--host", "0.0.0.0"]
