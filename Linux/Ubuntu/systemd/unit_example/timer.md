@@ -1,0 +1,12 @@
+```
+[Unit]
+Description=Example
+
+[Timer]
+Unit=monitoring.service
+# Каждую минуту
+OnCalendar=*-*-* *:*:00
+
+[Install]
+WantedBy=timers.target
+```
