@@ -1,0 +1,1 @@
+```unmkinitramfs``` - распаковать образ initrd
