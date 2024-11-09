@@ -17,3 +17,14 @@
   - правильно используйте ADD и COPY  
   - при возможности используйте официальные базовые образы  
   - не храните чувствительную информацию в образах  
+
+### После apt update и pip install остаётся кеш, чтобы сделать сборку легче:
+```Dockerfile
+...
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends gcc \
+    && rm -rf /var/lib/apt/lists/*
+...
+RUN --mount=type=bind,source=requirements.txt,target=requirements.txt \
+    pip install --no-cache-dir -r requirements.txt
+```
