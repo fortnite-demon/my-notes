@@ -5,3 +5,5 @@
 ```systemctl daemon-reload``` — перезапустить изменения в файлах модулей systemd;
 
 ```systemctl try-restart name``` — перезапустить сервис, только если он запущен;
+
+```systemctl mask <service>``` - гарантированно не запустит сервис.
