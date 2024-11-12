@@ -1,4 +1,4 @@
-```docker inspect``` - показать информацию о контейнере в формате Json  
+```docker buildx create --name mybuilder --bootstrap --use``` - установка доп. эмуляторов для buildx
 
 ```docker exec -it <container> <что запустить например /bin/bash>``` - подключиться к контейнеру
 
