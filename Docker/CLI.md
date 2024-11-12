@@ -1,4 +1,6 @@
-```docker buildx create --name mybuilder --bootstrap --use``` - установка доп. эмуляторов для buildx
+```docker run --privileged --rm tonistiigi/binfmt --install all``` - установка эмуляций для разных архитектур
+
+```docker buildx create --name mybuilder --bootstrap --use``` - создание билдера buildx
 
 ```docker exec -it <container> <что запустить например /bin/bash>``` - подключиться к контейнеру
 
