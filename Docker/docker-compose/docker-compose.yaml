@@ -8,6 +8,7 @@ include:
       - Сервис
       - override файл
 __________
+name: project-name
 
 x-env: &env
   DB_NAME: "prediction"
