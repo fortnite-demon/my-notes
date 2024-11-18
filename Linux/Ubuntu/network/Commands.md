@@ -32,5 +32,7 @@ route add -net 10.100.0.0 netmask 255.0.0.О reject
 
 ```nmcli``` - NetworkManager client
 
+```ipcs``` - Позволяет увидеть IPC объекты
+
 ## ifconfig
 ```ifconfig <интерфейс> promisc``` - Команда для перехвата пакетов которые были не для этой сетевой карты
