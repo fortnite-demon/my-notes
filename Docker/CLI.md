@@ -9,3 +9,5 @@
 ```docker run --mount type=bind,source="$(pwd)"/app,target=/app``` - делаем bind volume
 
 ```docker logs -f``` - лог файл в лайв режиме
+
+```docker run --security-opt apparmor=my_profile my_container ``` - **AppArmor** позволяет задать профили безопасности, доступ к опр. файлам, сетевым ресурсам и т.д.
