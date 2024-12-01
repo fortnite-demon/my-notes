@@ -1,1 +1,1 @@
-[https://yandex.cloud/ru/docs/cli/cli-ref](YandexCLoudCLI)
+[YandexCLoudCLI](https://yandex.cloud/ru/docs/cli/cli-ref)
