@@ -9,10 +9,8 @@ ARG PLATFORM
 ```
 ```Dockerfile
 RUN
-    --mount=from=name,target=/src <<EOF
-      mkdir -p /dotnet
-      tar -oxzf /src/dotnet.tar.gz -C /dotnet
-      EOF
+    --mount=from=name,target=/src \
+      pip install -r /src/dir/requirements.txt                           | или добавляем source=/dir и тогда будет -r /src/requirements.txt
     --mount=type=cache,target=/root/.cache/pip \                         | cache для кеша
     --mount=type=bind,source=requirements.txt,target=requirements.txt \  | bind rw, можно изменить на readonly
     --mount=type=bind, from=name ...  
