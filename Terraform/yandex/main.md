@@ -1,3 +1,6 @@
+[Справочник ресурсов](https://terraform-provider.yandexcloud.net/)
+
+```tf
 terraform {
   required_providers {
     yandex = {
@@ -12,3 +15,4 @@ provider "yandex" {
   folder_id = "<идентификатор_каталога>"
   zone      = "<зона_доступности_по_умолчанию>"
 } 
+```
