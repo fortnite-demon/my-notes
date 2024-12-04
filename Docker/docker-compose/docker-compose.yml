@@ -47,7 +47,13 @@ services:
     __________
     
     ports:
-      - "3000:3000"
+      - "3000-3001:3000-3001/tcp"
+      - name: name
+        target: 2001
+        published: 3000
+        protocol: tcp
+        app_protocol: http
+        host_ip: 127.0.0.1
       
     networks:
       - prediction-network
@@ -61,6 +67,12 @@ services:
     volumes:
       - ./prediction:/app
       - static_volume:/app/static
+      - type: volume/bind/tmpfs
+        target: /path
+        source: data
+        volume:
+          nocopy: true
+          subpath: sub
       
     depends_on:
       postgres-db:
@@ -80,6 +92,10 @@ services:
     __________
 
     user: ...
+
+    cap_add:
+    cap_drop:
+    runtime: runc
 
     profiles: ["dev","prod"...] При использовании docker compose --profile dev up, запустит все сервисы dev, можно также после up указать сервис 
     
