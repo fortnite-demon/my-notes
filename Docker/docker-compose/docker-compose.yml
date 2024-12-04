@@ -23,7 +23,7 @@ services:
     __________ Образ или путь к Dockerfile
     build:
       context: ./path
-      dockerfile:
+      dockerfile: /path/Dockerfile.dev
       args:
         arg: value
       secrets: Можно указать секреты во время сборки
@@ -36,9 +36,9 @@ services:
       или
       - source: secret
         target: /path/secret || name
-        uid:
-        gid:
-        mode: 700
+        uid: "1000"
+        gid: "1000"
+        mode: 0700
     __________
     env_file: ./.env
     или ещё указать
