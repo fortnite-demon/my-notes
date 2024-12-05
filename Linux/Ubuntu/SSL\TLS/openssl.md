@@ -16,3 +16,7 @@
 \# Указываем домен и т.д.
 
 ```openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -set_serial 1 -out server.crt``` - Подписываем сертификат
+
+## Проверка сертификата сервера
+
+```openssl s_client -connect practicum.yandex.ru:443```
