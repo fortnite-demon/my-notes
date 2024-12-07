@@ -4,7 +4,7 @@ ip netns add ns
 
 ip link add veth0 type veth peer name veth1
 
-ip link set veth1 netns ns
+ip link set veth0 netns ns
 
 ip netns exec ns ip link set dev veth1 up
 ```
