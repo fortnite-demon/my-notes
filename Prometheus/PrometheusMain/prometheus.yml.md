@@ -4,6 +4,7 @@
 global:
   scrape_interval: 15s
   evaluation_interval: 15s
+  scrape_timeout: 10s
   external_labels:   # Будут добавляться лейблы, когда prometheus будет взаимодействовать с внешним сервисом:
     datacenter: dc1  # федерация, алертменеджер, запись данных во внешнюю систему
 
@@ -51,6 +52,17 @@ scrape_configs:
     static_configs:
       - targets: ["158.23.2.12:9100"]
 
+  - job_name: "relabels"
+    static_configs:
+      - targets:
+          - "host:9090"
+    relabel_configs:
+      - source_labels: ["__address__"]
+        target_label: instance
+        action: replace # drop, keep
+        regex: (.*):(.*)
+        separator: ", "
+        replacement: "$1:8888"
 remote_write: # Для записи в базу данных, например через kafka
   - url: http://localhost:port/receive
 ```
