@@ -56,9 +56,13 @@ services:
         host_ip: 127.0.0.1
       
     networks:
-      - prediction-network
+      prediction-network:
+        aliases:
+          - servicename1 # Имя по которому к хосту можно будет обратиться
+          - servicename2
+        ipv4_address: 172.16.0.11
 
-    network_mode: "host", "none", "service:[service name", "container:[container name]" # service и container предоставляют доступ к указанному контейнеру
+    network_mode: "host", "none", "service:[service name]", "container:[container name]" # service и container предоставляют доступ к указанному контейнеру
 
     cgroup_parent: cgroup_name
 
@@ -146,7 +150,10 @@ secrets:
 
 networks:
   prediction-network:
-    driver: bridge
+    ipam:
+      driver: bridge
+      config:
+        - subnet: '172.16.0.10/24'
     или Будет искать сеть с именем network и подключать к ней контейнеры
     name: network
     external: true | Для подключения к уже существующей сети
