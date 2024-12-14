@@ -8,6 +8,16 @@ servers:
 paths:
   /:
     get:
+      summary: Say hello
+      operationId: hello
+      parameters:
+      - name: user
+        in: query
+        description: User name to appear in greetings
+        required: false
+        schema:
+          type: string
+          default: 'world'
       x-yc-apigateway-integration:
         type: dummy
         content:
