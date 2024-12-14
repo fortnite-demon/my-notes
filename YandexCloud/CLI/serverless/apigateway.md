@@ -3,8 +3,8 @@ openapi: 3.0.0
 info:
   title: Sample API
   version: 1.0.0
-servers:
-- url: https://d5dqh8osn8k0djb5f5rd.apigw.yandexcloud.net
+x-yc-apigateway:
+  service_account: <id> # Параметр верхнего уровня
 paths:
   /:
     get:
@@ -60,6 +60,6 @@ paths:
         type: cloud_functions
         function_id: b095c95icnvbuf4v755l
         tag: "$latest"
-        service_account_id: ajehfe41hhliq4n93q1g 
+        service_account_id: <id>
 
 ```
