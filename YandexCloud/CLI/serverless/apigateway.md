@@ -41,4 +41,24 @@ paths:
         presigned_redirect: true # Для запроса будет сгенерирован специальный тип URL, который содержит все данные для авторизации
         service_account: jkfk23afq4o3pv # Если не задан, то будет использованно значение параметра верхнего уровня
                                         # если так-же нет, то запрос будет происходить без авторизации (тогда нужен pub бакет)
+
+  /example/{ID}: # Этот пример направит все запросы вне зависимости от метода на одну функцию
+    x-yc-apigateway-any-method:
+      summary: Operating with examples
+      operationId: example
+      tags:
+        - example
+      parameters:
+        - name: ID
+          in: path
+          description: Return ID
+          required: true
+          schema:
+            type: string
+      x-yc-apigateway-integration:
+        type: cloud_functions
+        function_id: b095c95icnvbuf4v755l
+        tag: "$latest"
+        service_account_id: ajehfe41hhliq4n93q1g 
+
 ```
