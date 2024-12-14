@@ -18,6 +18,13 @@ paths:
         schema:
           type: string
           default: 'world'
+      responses:
+        '200':
+          description: Greeting
+          content:
+            'text/plain':
+               schema:
+                 type: "string"
       x-yc-apigateway-integration:
         type: dummy
         content:
