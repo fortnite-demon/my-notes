@@ -25,7 +25,7 @@ paths:
         http_code: 200
         http_headers:
           Content-Type: text/plain
-  /static/{file}:
+  /static/{file}: # Чтобы файлы были доступны на любом уровне вложенности /static/js/ и /static/CSS/ например, необходимо добавить + {file+}
     get:
       parameters:
         - name: file
@@ -37,6 +37,7 @@ paths:
         bucket: scam
         object: '{file}'
         type: object_storage
+        error_object: error.html
         presigned_redirect: true # Для запроса будет сгенерирован специальный тип URL, который содержит все данные для авторизации
         service_account: jkfk23afq4o3pv # Если не задан, то будет использованно значение параметра верхнего уровня
                                         # если так-же нет, то запрос будет происходить без авторизации (тогда нужен pub бакет)
