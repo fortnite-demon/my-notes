@@ -25,6 +25,7 @@ paths:
         http_code: 200
         http_headers:
           Content-Type: text/plain
+
   /static/{file}: # Чтобы файлы были доступны на любом уровне вложенности /static/js/ и /static/CSS/ например, необходимо добавить + {file+}
     get:
       parameters:
