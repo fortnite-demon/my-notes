@@ -11,9 +11,12 @@ inputs:
 outputs:
   result:
     description: lol
+    value: ${{ steps.step1.outputs.versionOut }}
 runs:
   using: 'composite'
   steps:
     - name: first step
-      run: 
+      id: step1
+      run: |
+        echo "versionOut=v1.0.0" >> $GITHUB_OUTPUT
       shell: bash
