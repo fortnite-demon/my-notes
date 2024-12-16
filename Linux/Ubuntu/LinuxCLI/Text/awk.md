@@ -39,3 +39,11 @@
 
 ## ```EXAMPLES```
 ```git log | awk '/^commit/{ commit=$2; total+=1 } /good/{goodCommit+=1; print "GOOD: ",commit } END { print "\nGOOD: ", goodCommit, "TOTAL: ", total}'```
+
+```awk -F, '{ split($2,date,"."); month=date[1]"-"date[2]; print month}' transactions.csv```  
+Если есть csv файл с таким содержимым:
+```csv
+1,10.12.2024.500
+2,10.01.2025,10235
+```
+То вывод будет: ```10-12``` и ```10-01```
