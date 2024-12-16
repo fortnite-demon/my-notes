@@ -36,3 +36,6 @@
 ```log(x)``` — натуральный логарифм.  
 ```rand()``` — возвращает случайное число с плавающей запятой в диапазоне 0 — 1.  
 ```sqrt(x)``` — квадратный корень из x.  
+
+## ```EXAMPLES```
+```git log | awk '/^commit/{ commit=$2; total+=1 } /good/{goodCommit+=1; print "GOOD: ",commit } END { print "\nGOOD: ", goodCommit, "TOTAL: ", total}'```
