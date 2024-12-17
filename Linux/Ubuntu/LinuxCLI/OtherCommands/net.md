@@ -19,3 +19,8 @@
   - ```+noall```: уберет весь вывод
   - ```+answer```: dns записи
   - ```+trace```: трассировка, кто ответил
+
+## ```nmcli``` - NetworkManager
+
+## ```networkctl``` - systemd-networkd
+  - ```networkctl status --all```: вывести все интерфейсы
