@@ -1,3 +1,8 @@
+###  Создаёт изолированную файловую систему на основе образа и запускает оболочку bash в ней:
+```
+unshare --mount --uts --ipc --net --pid --fork chroot /path/to/rootfs /bin/bash
+```
+
 ### PID Namespace — изоляция процессов.
 ```
 sudo unshare --pid --fork
