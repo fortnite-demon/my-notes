@@ -1,10 +1,31 @@
-Так мы создадим новое сетевое пространство имён **ns** и привяжем интерфейс veth1 к этому сетевому пространству. А также поднимаем внутри этого пространства
+**Настройка двух виртуальных клиентов:**
+
+*HOST:*
 ```
-ip netns add ns
+sudo ip netns add client1
+sudo ip netns add client2
 
-ip link add veth0 type veth peer name veth1
+sudo ip link set c1-eth0 netns client1
+sudo ip link set c2-eth0 netns client2
 
-ip link set veth0 netns ns
+sudo ip addr add dev r-veth1 192.168.0.1/24
+sudo ip link set dev r-veth1 up
 
-ip netns exec ns ip link set dev veth1 up
+sudo ip addr add dev r-veth2 172.16.0.1/24
+sudo ip link set dev r-veth2 up
 ```
+
+*CLIENT1:*
+```
+sudo ip addr add dev c1-eth0 192.168.0.3/24
+sudo ip link set dev c1-eth0 up
+sudo ip route add default via 192.168.0.1
+```
+
+*CLIENT2:*
+```
+sudo ip addr add dev c2-eth0 172.16.0.3/24
+sudo ip link set dev c2-eth0 up
+sudo ip route add default via 172.16.0.1
+```
+
