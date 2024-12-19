@@ -18,6 +18,12 @@
 
 ```/proc/<PID>/smaps``` - более детальный вывод о сегментах
 
+```/proc/<PID>/stack``` - стек вызовов
+
+```/proc/<PID>/limits``` - лимиты процесса
+
+```/proc/<PID>/status``` - подробная информация о процесса
+
 ## MONITORING
 
 ```/proc/pressure/memory,cpu,io``` - информация о давлении
