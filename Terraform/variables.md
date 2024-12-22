@@ -2,6 +2,15 @@
 файлы с именами ***terraform.tfvars*** или ***terraform.tfvars.json***;
 любые файлы с именами, оканчивающимися на ***.auto.tfvars*** или ***.auto.tfvars.json.****
 
+### Обработка переменных:
+
+1. Переменные окружения
+2. terraform.tfvars
+3. terraform.tfvars.json
+4. *.auto.tfvars.json        (в алфавитном порядке)
+5. *.auto.tfvars             (в алфавитном порядке)
+6. CLI -var= или -var-file=
+
 
 ### Блок:
 ```tf
