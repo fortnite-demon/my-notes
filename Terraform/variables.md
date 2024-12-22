@@ -17,7 +17,7 @@ variable "my_var" {
   }
   ```
 
-- ```validation``` Блок для проверки значений переменной
+- ```validation``` блок для проверки значений переменной
 
   ```tf
   validation {
@@ -25,6 +25,11 @@ variable "my_var" {
     error_message = "Allowed versions: 12, 13, 14 | NOT ${var.version}"
   }
   ```
+
+- ```sensitive``` заменяет вывод переменной на *(sensetive value)* при использовании *terraform apply* и *plan*
+
+- ```nullable``` контролирует, может ли быть переменной присвоено значение null
+
   
 
 
