@@ -1,3 +1,8 @@
+*Terraform также автоматически загружает ряд файлов определений переменных:
+файлы с именами ***terraform.tfvars*** или ***terraform.tfvars.json***;
+любые файлы с именами, оканчивающимися на ***.auto.tfvars*** или ***.auto.tfvars.json.****
+
+
 ### Блок:
 ```tf
 variable "my_var" {
@@ -60,8 +65,8 @@ variable "my_var" {
 
   ```tf
   type = object({
-    name   = optional(string, "none") # можно использовать optional(), чтобы сделать атрибут необязательным
-    age    = number
+    name   = optional(string, "Jhon") # можно использовать optional(), чтобы сделать атрибут необязательным
+    age    = optional(number, null)   # значение null по умолчанию
     labels = map(string)
   })
   ```
@@ -71,6 +76,8 @@ variable "my_var" {
   ```tf
   type = tuple(string, number, bool) # [ "string", 24, true ]
   ```
+
+  
 
   
 
