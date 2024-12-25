@@ -1,6 +1,13 @@
 [DOCS](https://developer.hashicorp.com/terraform/language/functions)
 
 
+### Collections
+| Функция | Назначение | Пример | Результат |
+|---------|------------|--------|-----------|
+| ```flatten()``` | Возвращает плоский список из списков. | flatten([[["a"]],[[], ["b", "c"]]]) | ["a", "b", "c"] |
+| ```value()``` | Возвращает значения. | value(local.networks) | ["192.168.0.0/24"] |
+
+
 ### Strings
 | Функция | Назначение | Пример | Результат |
 |---------|------------|--------|-----------|
@@ -20,6 +27,12 @@
 | ```basename()``` | Возвращает имя файла из пути. | basename("/path/to/file.txt") | file.txt |
 | ```fileexists()``` | Проверяет наличие файла. | fileexists("/path/to/file.txt") | true | 
 | ```fileset()``` | Возвращает список файлов исходя из шаблона | fileset(path.module, **.txt ) | files/file1.txt<br>files/file2.txt |
+| ```templatefile()``` | Создает файл на основе шаблона. | templatefile("template.tftpl", {<br>url = http://api.api.com<br>user = im<br>}) | Шаблон:<br>urlPath = "${url}"<br>userId = "${user}"<br><br>Результат:<br>urlPath = http://api.api.com<br>userId = im |
+
+### Code, encode
+| Функция | Назначение | Пример | Результат |
+|---------|------------|--------|-----------|
+| ```base64encode()```<br>```base64decode()``` | Кодирование в формат base64<br>Декодирование base64 | base64encode("Hello World")<br>base64decode("SGVsbG8gV29ybGQ=") | SGVsbG8gV29ybGQ=<br>Hello world |
 
 ### Datetime
 | Функция | Назначение | Пример | Результат |
