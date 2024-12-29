@@ -1,9 +1,10 @@
 | Context | Description | Output |
 |---------|-------------|--------|
 | ```github.ref_name``` | Куда запушили, имя ветки | main |
-| ```github.ref``` | Куда запушили, имя ветки | refs/head/main |
+| ```github.ref``` | Куда запушили, имя ветки | refs/heads/main |
 | ```github.event_name``` | Имя триггера, push, pull_request... | push |
-| ```github.actor\|\|triggering_actor``` | Кто запушил | fortnite-demon |
+| ```github.actor``` | Кто запушил | fortnite-demon |
+| ```github.triggering_actor``` | Кто непосредственно запустил при помощи ```workflow_dispatch``` | fortnite-demon |
 | ```github.event.sender.html_url``` | Ссылка на того, кто запушил | https://github.com/fortnite-demon |
 | ```github.repository_owner``` | Кто владеет репозиторием | fortnite-demon |
 | ```github.repositoryUrl``` | URL на репозиторий | git://github.com/fortnite-demon/actions.git |
