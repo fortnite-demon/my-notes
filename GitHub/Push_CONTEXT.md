@@ -13,5 +13,5 @@
 | ```github.workflow``` | Имя workflow | My very beautiful workflow with pizza |
 | ```github.sha``` | Хеш workflow | b66fd700ad4ed45629ed78e799... |
 | ```github.event.head_commit.url``` | URL коммита который запушили | URL |
-| ```github.event.after\|\|before``` | SHA after или before коммита | SHA |
+| ```github.event.after\|\|before``` | SHA after (коммита до события) и before (после события) | SHA |
 | ```github.event.repository.default_branch``` | Дефолтная ветка в репозитории | main |
