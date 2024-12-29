@@ -1,7 +1,7 @@
 | Context | Description | Output |
 |---------|-------------|--------|
 | ```github.ref_name``` | Куда запушили, имя ветки | main |
-| ```github.ref``` | Куда запушили, имя ветки | refs/heads/main |
+| ```github.ref``` | Полная ссылка на ветку или тег | refs/heads/main<br>/refs/tags/v1.0.0 |
 | ```github.event_name``` | Имя триггера, push, pull_request... | push |
 | ```github.actor``` | Кто запушил | fortnite-demon |
 | ```github.triggering_actor``` | Кто непосредственно запустил при помощи ```workflow_dispatch``` | fortnite-demon |
