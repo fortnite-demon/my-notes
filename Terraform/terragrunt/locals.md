@@ -1,4 +1,4 @@
-root.hcl:
+*root.hcl:*
 ```tf
 locals {
   region_hcl = find_in_parent_folders("region.hcl")
@@ -6,9 +6,10 @@ locals {
 }
 ```
 
-Чтобы открыть перменные в дочернем файле, можем использовать такой параметр:
 
-env/prod/vpc/terragrunt.hcl
+### Чтобы открыть перменные в дочернем файле, можем использовать такой параметр:
+
+*env/prod/vpc/terragrunt.hcl:*
 ```tf
 include {
   path = find_in_parent_folders("root.hcl")
