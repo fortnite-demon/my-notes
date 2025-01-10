@@ -1,10 +1,17 @@
-[Unit]
-Description=Example
+[Unit] секция:
+Description
+After, Requires
+Wants, Conflicts, PartOf, BindsTo
 
-[Timer]
-Unit=monitoring.service
-# Каждую минуту
-OnCalendar=*-*-* *:*:00
+[Timer] секция:
+OnCalendar: Расписание таймера (например, daily, hourly, Mon-Fri 08:00).
+OnBootSec: Задержка перед первым запуском после загрузки.
+OnUnitActiveSec: Задержка перед следующим запуском, считая от времени активации юнита.
+OnUnitInactiveSec: Задержка перед следующим запуском, считая от времени деактивации юнита.
+AccuracySec: Степень точности таймера.
+Persistent: Сохранять ли расписание для следующих запусков, если они были пропущены (например, из-за выключения компьютера).
+Unit: Сервис, который будет запускаться таймером.
+RandomizedDelaySec: Случайная задержка (в секундах) перед запуском, чтобы избежать одновременного запуска множества задач.
 
-[Install]
+[Install] секция: 
 WantedBy=timers.target
