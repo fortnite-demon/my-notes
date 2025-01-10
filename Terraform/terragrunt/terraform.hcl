@@ -13,4 +13,16 @@ terraform {
 
     env_vars = {} # Карта пар ключ=значение которые устанавливаются в качестве переменных среды при вызове terraform
   }
+
+  after_hook "hook" { # Какие действия нужно выполнить после commands. Специальные хуки: terragrunt-read-config (загрузка конфига) запускается в terragrunt.hcl директории
+                      #                                                                  init-from-module (копирование кода модулей) в terragrunt.hcl
+                      #                                                                  init (terraform init) в директории модуля .terragrunt-cache/.../...
+    commands = [...]
+
+    execute = [...]
+
+    working_dir = ""
+    run_on_error = ""
+    suppress_stdout = ""
+  }
 }
