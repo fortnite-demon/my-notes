@@ -4,7 +4,7 @@ After, Requires
 Wants, Conflicts, PartOf, BindsTo
 
 [Timer] секция:
-OnCalendar: [DayOfWeek][Year]-[Month]-[Day] [Hour]:[Minute]:[Second]
+OnCalendar: [ Mon, Tue, Wed, Thu, Fri, Sat, Sun ][Year]-[Month]-[Day] [Hour]:[Minute]:[Second]
 OnBootSec: Задержка перед первым запуском после загрузки.
 OnUnitActiveSec: Задержка перед следующим запуском, считая от времени активации юнита.
 OnUnitInactiveSec: Задержка перед следующим запуском, считая от времени деактивации юнита.
