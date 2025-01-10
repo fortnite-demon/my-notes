@@ -22,7 +22,7 @@ terraform {
     execute = [...]
 
     working_dir = ""
-    run_on_error = ""
-    suppress_stdout = ""
+    run_on_error = "" # При ошибке предыдущего хука, выполнять ли слудующий
+    suppress_stdout = "" # Вывод команд не выводится на stdout
   }
 }
