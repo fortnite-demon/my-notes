@@ -10,5 +10,7 @@ terraform {
     ]
 
     required_var_files/optional_var_files # Списки файлов (.tfvars) которые будут переданы terraform, в optional за исключением несуществующих
+
+    env_vars = {} # Карта пар ключ=значение которые устанавливаются в качестве переменных среды при вызове terraform
   }
 }
