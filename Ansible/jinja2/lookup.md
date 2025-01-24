@@ -6,6 +6,7 @@
 | config        | Ишет текущие значения настроек Ansible                     ||
 | csvfile       | Запись в файле .csv                                        | lookup('csvfile', 'name file=users.csv delimiter=, col=2') |
 | dict          | Возвращает пары ключ=значение из словарей                  ||
+| dig           | Возвращает IP адрес хоста, НУЖЕН пакет python3-dnspython на управляющей машине | lookup('dig', 'ansible0.mearme-demon.site') |
 | dnstxt        | Запись в DNS типа TXT                                      ||
 | file          | Содержимое файла                                           ||
 | fileglob      | Список файлов с именами, соответствующими образцу          ||
