@@ -11,4 +11,5 @@
   loop_control:
     pause: 5
     index_var: i
+    loop_var: v # Для изменения дефолтного `item`
 ```
