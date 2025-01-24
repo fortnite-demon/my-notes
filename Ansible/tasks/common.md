@@ -1,5 +1,5 @@
 ### loop
-```
+```yml
 - name: loop
   debug:
     msg: |-
