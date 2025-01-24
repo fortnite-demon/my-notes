@@ -7,7 +7,7 @@
 | csvfile       | Запись в файле .csv                                        | lookup('csvfile', 'name file=users.csv delimiter=, col=2') |
 | dict          | Возвращает пары ключ=значение из словарей                  ||
 | dig           | Возвращает IP адрес хоста, НУЖЕН пакет python3-dnspython на управляющей машине | lookup('dig', 'ansible0.mearme-demon.site') |
-| dnstxt        | Запись в DNS типа TXT                                      ||
+| dnstxt        | Запись в DNS типа TXT                                      | lookup('dnstxt', 'txt.mearme-demon.site', 'qtype=TXT') |
 | file          | Содержимое файла                                           ||
 | fileglob      | Список файлов с именами, соответствующими образцу          ||
 | first_found   | Возвращает первый найденный файл из списка                 ||
