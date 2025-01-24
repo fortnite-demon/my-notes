@@ -11,5 +11,6 @@
   loop_control:
     pause: 5
     index_var: i
-    loop_var: v # Для изменения дефолтного `item`
+    loop_var: v              # Для изменения дефолтного `item`
+    label: "{{ item.name }}" # Что именно должно выводиться при обходе элементов
 ```
