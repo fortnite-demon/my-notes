@@ -14,3 +14,12 @@ roles/requirements.yml
   version: master
   name: nginx
 ```
+
+```yml
+roles:
+  - src: ...
+collections:
+  - ...
+```
+
+ansible-galaxy install -r requirements.yml
