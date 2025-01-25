@@ -21,6 +21,7 @@
         cmd: /opt/cmd/cmd
       run_once: true           # Запускает задачу только один раз, если например будет группа хостов в hosts,
                                # то задача будет запущена один раз.
+      check_mode: false        # При запуске ansible-playbook --check, выполнится
 
     - name: meta commands
       ansible.builtin.meta: end_play    # завершает выполнение операции без генерирования признака ошибки
