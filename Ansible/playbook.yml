@@ -28,3 +28,10 @@
                             end_batch   # завершает обработку текущего пакета при использовании serial
                             end_host    # завершает выполнение задач на текущем хосте без генерирования признака ошибки
                             clear_facts # очищает факты
+
+  handlers:
+    - name: Changed nginx conf
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
+      listen: Restart nginx # Можем уведомить обработчик по этим словам, также в других обработчиках можем указать Restart nginx в listen
