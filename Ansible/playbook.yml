@@ -28,6 +28,24 @@
                             end_batch   # завершает обработку текущего пакета при использовании serial
                             end_host    # завершает выполнение задач на текущем хосте без генерирования признака ошибки
                             clear_facts # очищает факты
+                            
+    - name: clone linux kernel repo
+      ansible.builtin.git:
+        repo: git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+        dest: kernel
+      async: 3600 
+      poll: 0 
+      register: linux_clone 
+
+    - name: next task
+      ...
+
+    - name: check clone
+      ansible.builtin.async_status:
+        jid: "{{ linux_clone.ansible_job_id }}"
+      register: result
+      until: result.finished
+      retries: 3600
 
   handlers:
     - name: Changed nginx conf
